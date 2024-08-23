@@ -1,0 +1,10 @@
+<suite name = "demoQA Test Otomation Project" >
+    <parameter name = "browser" value = "chrome"/>
+    <test name = "demoQA">
+        <classes>
+            <class name = "testRunners.Runner"/>
+        </classes>
+    </test>
+
+
+</suite>
