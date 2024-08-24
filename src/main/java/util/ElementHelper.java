@@ -10,6 +10,8 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
 
+import static org.testng.Assert.assertEquals;
+
 public class ElementHelper {
     WebDriver driver;
     WebDriverWait wait;
@@ -42,9 +44,9 @@ public class ElementHelper {
         findElement(key).click();
     }
 
-    public void sleep(long key){
+    public void sleep(long milisecond){
         try {
-            Thread.sleep(key);
+            Thread.sleep(milisecond);
         } catch (InterruptedException e) {
             throw new RuntimeException(e);
         }
@@ -56,4 +58,15 @@ public class ElementHelper {
         js.executeScript("window.scrollBy(0, arguments[0])", amount);
     }
 
+
+    public void testWebElementText(By locator, String expected) {
+        // Web elemanını bulun
+        WebElement element = driver.findElement(locator); // Elementin bulunma yöntemi ve ID'sini belirtin
+
+        // Elementin içindeki metni alın
+        String actualText = element.getText();
+
+        // Assertion ile doğrulayın
+        assertEquals(expected, actualText, "Web elementinin metni beklenen değeri karşılamıyor.");
+    }
 }
