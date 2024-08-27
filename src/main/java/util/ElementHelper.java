@@ -59,14 +59,15 @@ public class ElementHelper {
     }
 
 
-    public void testWebElementText(By locator, String expected) {
-        // Web elemanını bulun
-        WebElement element = driver.findElement(locator); // Elementin bulunma yöntemi ve ID'sini belirtin
-
-        // Elementin içindeki metni alın
+    public void testWebElementText(By key, String expected) {
+        WebElement element = driver.findElement(key);
         String actualText = element.getText();
+        assertEquals(expected, actualText, "The text of the web element does not meet the expected value.");
+    }
 
-        // Assertion ile doğrulayın
-        assertEquals(expected, actualText, "Web elementinin metni beklenen değeri karşılamıyor.");
+
+    public void deleteAll(By key){
+        WebElement element = driver.findElement(key);
+        element.clear();
     }
 }

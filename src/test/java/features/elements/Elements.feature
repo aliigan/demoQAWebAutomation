@@ -31,36 +31,36 @@ Feature: Elements dropdown test cases
     Then Check that the message You have selected Yes appears on the screen
 
 
-  @WebTables @AddUser
+  @WebTables @AddUser @EditUser
   Scenario: Add a new user to the web tables list
     Given User is on web tables menu
     When Click to add button
     Then Check that the registration form is opened
-    When Write first name as "Ahmet"
+    When Write first name as "Ahmet Ali"
     And Write second name as "İGAN"
     And Write user email as "mail@mail.com"
     And Write age as "29"
     And Write salary as "100000"
     And Write department as "Software Development"
     And Click registration form submit button
-    Then Check user: "Ahmet"
+    Then Check user: "Ahmet Ali"
 
 
   @WebTables @EditUser
   Scenario: Edit a user
     Given User is on web tables menu
-    When Search "Ahmet Ali İGAN"
+    When Search "Cierra"
     And Click to edit button
     And Update email as "mail48@mail.com"
     And Click to submit button
-    And Search "Ahmet Ali İGAN" from list
-    Then Check if your email is updated
+    And Search "mail48@mail.com" from list
+    Then Check if the mail is updated to "mail48@mail.com"
 
 
   @WebTables @DeleteUser
   Scenario: Delete a user
     Given  User is on web tables menu
-    When Search "Ahmet Ali İGAN"
+    When Search "Alden"
     And Click to delete button
     Then List must be empty
 
@@ -80,7 +80,29 @@ Feature: Elements dropdown test cases
 
 #  @WebTables @PaginationTest
 #  Scenario: Pagination operations forward, backward, page going tests
-#    Given Use
+
+
+  @Buttons @DoubleClick
+  Scenario: Double click on the button
+    Given User is on Buttons menu
+    When Double click on the Double Click Me button
+    Then The message "You have done a double click" is displayed on the screen
+
+
+  @Buttons @RightClick
+  Scenario: Right click on the button
+    Given User is on Buttons menu
+    When Right click on the Right Click Me button
+    Then The message "You have done a right click" is displayed on the screen
+
+
+  @Buttons @Click
+  Scenario: Click on the button
+    Given User is on Buttons menu
+    When Left click on the Click Me button
+    Then The message "You have done a dynamic click" is displayed on the screen
+
+
 
 
 

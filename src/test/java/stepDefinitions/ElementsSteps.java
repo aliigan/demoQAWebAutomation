@@ -159,13 +159,13 @@ public class ElementsSteps {
     }
 
     @And("Search {string} from list")
-    public void searchFromList(String name) {
-        elements.searchFromList(name);
+    public void searchFromList(String email) {
+        elements.searchFromList(email);
     }
 
-    @Then("Check if your email is updated")
-    public void checkIfYourEmailIsUpdated() {
-        elements.checkIfYourEmailIsUpdated();
+    @Then("Check if the mail is updated to {string}")
+    public void checkIfYourEmailIsUpdated(String email) {
+        elements.checkIfYourEmailIsUpdated(email);
     }
 
     @And("Click to delete button")
@@ -176,5 +176,30 @@ public class ElementsSteps {
     @Then("List must be empty")
     public void listMustBeEmpty() {
         elements.listMustBeEmpty();
+    }
+
+    @Given("User is on Buttons menu")
+    public void userIsOnButtonsMenu() {
+        elements.userIsOnButtonsMenu();
+    }
+
+    @When("Double click on the Double Click Me button")
+    public void doubleClickOnTheDoubleClickMeButton() {
+        elements.doubleClickOnTheDoubleClickMeButton();
+    }
+
+    @Then("The message {string} is displayed on the screen")
+    public void theMessageIsDisplayedOnTheScreen(String message) {
+        elements.theMessageIsDisplayedOnTheScreen(message);
+    }
+
+    @When("Right click on the Right Click Me button")
+    public void rightClickOnTheRightClickMeButton() {
+        elements.rightClickOnTheRightClickMeButton();
+    }
+
+    @When("Left click on the Click Me button")
+    public void leftClickOnTheClickMeButton() {
+        elements.leftClickOnTheClickMeButton();
     }
 }

@@ -13,6 +13,9 @@ public class ElementsPage {
     WebDriverWait wait;
     ElementHelper elementHelper;
     Actions actions;
+
+    By search = By.xpath("//input[@id='searchBox']");
+    By email = By.xpath("//input[@id='userEmail']");
     
     public ElementsPage(WebDriver driver){
         this.driver = driver;
@@ -127,8 +130,7 @@ public class ElementsPage {
     }
 
     public void writeUserEmailAs(String email) {
-        By email_ = By.xpath("//input[@id='userEmail']");
-        elementHelper.sendKey(email_, email);
+        elementHelper.sendKey(this.email, email);
     }
 
     public void writeAgeAs(String age) {
@@ -155,31 +157,58 @@ public class ElementsPage {
     public void checkUser(String user) {
         elementHelper.sleep(1000);
         elementHelper.scrollByAmount(driver, 400);
-        By search = By.xpath("//input[@id='searchBox']");
         elementHelper.sendKey(search, user);
         By expectedUser = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]");
         elementHelper.testWebElementText(expectedUser, user);
     }
 
     public void search(String name) {
-
+        elementHelper.sendKey(search, name);
     }
 
     public void clickToEditButton() {
+        By edit = By.xpath("//span[@id='edit-record-1']//*[name()='svg']");
+        elementHelper.click(edit);
     }
 
     public void updateEmailAs(String email) {
+        elementHelper.deleteAll(this.email);
+        elementHelper.sleep(500);
+        elementHelper.sendKey(this.email, email);
     }
 
-    public void searchFromList(String name) {
+    public void searchFromList(String email) {
+        elementHelper.sendKey(search, email);
     }
 
-    public void checkIfYourEmailIsUpdated() {
+    public void checkIfYourEmailIsUpdated(String email) {
+        //todo should be transferred here with the updated email cucumber
+        By checkEmail = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[4]");
+        elementHelper.testWebElementText(checkEmail, email);
     }
 
     public void clickToDeleteButton() {
+        By delete = By.name("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/span[1]/*[name()='svg'][1]/*[name()='path'][1]");
+        elementHelper.click(delete);
     }
 
     public void listMustBeEmpty() {
+        By emtyListLabel = By.xpath("//div[@class='rt-noData']");
+        elementHelper.testWebElementText(emtyListLabel, "No rows found");
+    }
+
+    public void userIsOnButtonsMenu() {
+    }
+
+    public void doubleClickOnTheDoubleClickMeButton() {
+    }
+
+    public void theMessageIsDisplayedOnTheScreen(String message) {
+    }
+
+    public void rightClickOnTheRightClickMeButton() {
+    }
+
+    public void leftClickOnTheClickMeButton() {
     }
 }
