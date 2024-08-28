@@ -104,6 +104,33 @@ Feature: Elements dropdown test cases
     Then The message "You have done a dynamic click" is displayed on the screen
 
 
+  @Links @LinksToNewTab
+  Scenario Outline: Test scenarios for links that open new tabs
+    Given User is on Links menu
+    When Click to "<link>"
+    Then Check if a new tab opens
+    Examples:
+      | link |
+      |//a[@id='simpleLink']|
+      |//a[@id='dynamicLink']|
+
+
+  @Links @LinksSendingApiCall
+  Scenario Outline: Test scenarios for links sending API call
+    Given User is on Links menu
+    When Click to "<link>"
+    Then Check if the api message is "<message>"
+    Examples:
+      | link                    | message |
+      |//a[@id='created']       |201      |
+      |//a[@id='no-content']    |204      |
+      |//a[@id='moved']         |301      |
+      |//a[@id='bad-request']   |400      |
+      |//a[@id='unauthorized']  |401      |
+      |//a[@id='forbidden']     |403      |
+      |//a[@id='invalid-url']   |404      |
+
+
 
 
 

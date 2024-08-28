@@ -4,9 +4,11 @@ import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
+import org.testng.Assert;
 import util.ElementHelper;
 
 import java.time.Duration;
+import java.util.ArrayList;
 
 public class ElementsPage {
     WebDriver driver;
@@ -232,5 +234,29 @@ public class ElementsPage {
     public void leftClickOnTheClickMeButton() {
         By leftClickButton = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/button[1]");
         elementHelper.leftClick(leftClickButton);
+    }
+
+    public void userIsOnLinksMenu() {
+        By links = By.xpath("//div[@class='element-list collapse show']//li[@id='item-5']");
+        elementHelper.click(links);
+    }
+
+    public void clickTo(String link) {
+        elementHelper.scrollByAmount(driver, 300);
+        By link_ = By.xpath(link);
+        elementHelper.click(link_);
+    }
+
+    public void checkIfANewTabOpens() {
+        ArrayList<String> tabs = new ArrayList<>(driver.getWindowHandles());
+        driver.switchTo().window(tabs.get(1));
+        String newTabUrl = driver.getCurrentUrl();
+        Assert.assertEquals(newTabUrl, "https://demoqa.com/");
+    }
+
+    public void checkIfTheApiMessageIs(String message) {
+        By messageCode = By.xpath("//b[normalize-space()='" + message + "']");
+        elementHelper.isElementPresent(driver, messageCode);
+        Assert.assertTrue(elementHelper.isElementPresent(driver, messageCode));
     }
 }

@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.time.Duration;
+import java.util.List;
 
 import static org.testng.Assert.assertEquals;
 
@@ -91,4 +92,11 @@ public class ElementHelper {
         JavascriptExecutor js = (JavascriptExecutor) driver;
         js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
+
+    public boolean isElementPresent(WebDriver driver, By by) {
+        List<WebElement> elements = driver.findElements(by);
+        return elements.size() > 0;
+    }
+
+
 }

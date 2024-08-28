@@ -202,4 +202,24 @@ public class ElementsSteps {
     public void leftClickOnTheClickMeButton() {
         elements.leftClickOnTheClickMeButton();
     }
+
+    @Given("User is on Links menu")
+    public void userIsOnLinksMenu() {
+        elements.userIsOnLinksMenu();
+    }
+
+    @When("Click to {string}")
+    public void clickTo(String link) {
+        elements.clickTo(link);
+    }
+
+    @Then("Check if a new tab opens")
+    public void checkIfANewTabOpens() {
+        elements.checkIfANewTabOpens();
+    }
+
+    @Then("Check if the api message is {string}")
+    public void checkIfTheApiMessageIs(String message) {
+        elements.checkIfTheApiMessageIs(message);
+    }
 }
