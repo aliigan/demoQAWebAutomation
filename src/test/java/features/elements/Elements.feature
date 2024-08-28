@@ -3,7 +3,7 @@ Feature: Elements dropdown test cases
 
   Background: To access drop-down menus
     When Click to elements button
-    And Click to text box button
+#    And Click to text box button
 
 
   @TextBox
@@ -31,7 +31,7 @@ Feature: Elements dropdown test cases
     Then Check that the message You have selected Yes appears on the screen
 
 
-  @WebTables @AddUser @EditUser
+  @WebTables @AddUser
   Scenario: Add a new user to the web tables list
     Given User is on web tables menu
     When Click to add button
@@ -76,6 +76,7 @@ Feature: Elements dropdown test cases
     And Write salary as "100000"
     And Write department as "Software Development"
     And Click registration form submit button
+    Then Check that the registration form is opened
 
 
 #  @WebTables @PaginationTest

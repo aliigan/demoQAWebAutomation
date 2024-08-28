@@ -188,7 +188,7 @@ public class ElementsPage {
     }
 
     public void clickToDeleteButton() {
-        By delete = By.name("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[7]/div[1]/span[1]/*[name()='svg'][1]/*[name()='path'][1]");
+        By delete = By.xpath("//span[@id='delete-record-2']//*[name()='svg']");
         elementHelper.click(delete);
     }
 
@@ -198,17 +198,39 @@ public class ElementsPage {
     }
 
     public void userIsOnButtonsMenu() {
+        By buttonsMenu = By.xpath("//span[normalize-space()='Buttons']");
+        By scrroll = By.xpath("//body/div[@id='app']/div[@class='body-height']/div[@class='container playgound-body']/div[@class='row']/div[@class='col-12 mt-4 col-md-6']/div[3]");
+        elementHelper.click(buttonsMenu);
+        elementHelper.scrollToElement(scrroll);
+        elementHelper.sleep(2000);
     }
 
     public void doubleClickOnTheDoubleClickMeButton() {
+        By doubleClickButton = By.xpath("//button[@id='doubleClickBtn']");
+        elementHelper.doubleClick(doubleClickButton);
+        elementHelper.sleep(2000);
     }
 
     public void theMessageIsDisplayedOnTheScreen(String message) {
+        if (message.equals("You have done a double click")){
+            By doubleClickMessage = By.xpath("//p[@id='doubleClickMessage']");
+            elementHelper.testWebElementText(doubleClickMessage, message);
+        }else if (message.equals("You have done a right click")){
+            By rightClickMessage = By.xpath("//p[@id='rightClickMessage']");
+            elementHelper.testWebElementText(rightClickMessage, message);
+        }else{
+            By leftClickMessage = By.xpath("//p[@id='dynamicClickMessage']");
+            elementHelper.testWebElementText(leftClickMessage, message);
+        }
     }
 
     public void rightClickOnTheRightClickMeButton() {
+        By rightClickButton = By.xpath("//button[@id='rightClickBtn']");
+        elementHelper.rightClick(rightClickButton);
     }
 
     public void leftClickOnTheClickMeButton() {
+        By leftClickButton = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/button[1]");
+        elementHelper.leftClick(leftClickButton);
     }
 }

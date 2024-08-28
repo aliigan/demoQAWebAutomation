@@ -70,4 +70,25 @@ public class ElementHelper {
         WebElement element = driver.findElement(key);
         element.clear();
     }
+
+    public void doubleClick(By key){
+        WebElement element = driver.findElement(key);
+        actions.doubleClick(element).perform();
+    }
+
+    public void rightClick(By key){
+        WebElement element = driver.findElement(key);
+        actions.contextClick(element).perform();
+    }
+
+    public void leftClick(By key){
+        WebElement element = driver.findElement(key);
+        actions.click(element).perform();
+    }
+
+    public void scrollToElement(By key){
+        WebElement element = driver.findElement(key);
+        JavascriptExecutor js = (JavascriptExecutor) driver;
+        js.executeScript("arguments[0].scrollIntoView(true);", element);
+    }
 }
