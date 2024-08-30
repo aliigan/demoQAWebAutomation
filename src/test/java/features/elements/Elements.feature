@@ -131,6 +131,69 @@ Feature: Elements dropdown test cases
       |//a[@id='invalid-url']   |404      |
 
 
+  @BrokenLinksImages @VerifyValidLink
+  Scenario: Verify that the valid link is working
+    Given User is on the Broken Links - Images page
+    When Click to valid link
+    Then Check that the "https://demoqa.com/" link is being accessed
+
+
+  @BrokenLinksImages @VerifyInvalidLink
+  Scenario: Verify that the broken link is not working
+    Given User is on the Broken Links - Images page
+    When Click to broken link
+    Then The error page must be displayed
+
+
+  @BrokenLinksImages @VerifyValidImage
+  Scenario: Verify that the valid image is displayed correctly
+    Given User is on the Broken Links - Images page
+    Then The valid image should be displayed
+
+
+  @BrokenLinksImages @VerifyInvalidImage
+  Scenario: Verify that the broken image is not displayed
+    Given User is on the Broken Links - Images page
+    Then The broken image should not be displayed
+
+
+  @UploadAndDownload @Download
+  Scenario: Verify that the download was successful
+    Given User is on Upload and Download page
+    When Click to download button
+    Then The image must be downloaded
+
+
+  @UploadAndDownload @Upload
+  Scenario: Verify that the download was successful
+    Given User is on Upload and Download page
+    When Click to upload button
+    Then The image must be uploaded
+
+
+  @DynamicProperties @VerifyEnabledButton
+  Scenario: Verify that the button is enabled after 5 seconds
+    Given User is on the Dynamic Properties page
+    Then The Enable After Five Seconds button should be disabled
+    When Wait for 5 seconds
+    Then The Enable After Five Seconds button should be enabled
+
+
+  @DynamicProperties @VerifyColorChangeButton
+  Scenario: Verify that the button color changes after 5 seconds
+    Given User is on the Dynamic Properties page
+    Then The Color Change button should have a blue background color
+    When Wait for 5 seconds
+    Then The Color Change button should change its background color to red
+
+
+  @DynamicProperties @VerifyBecomesVisibleButton
+  Scenario: Verify that the button becomes visible after 5 seconds
+    Given User is on the Dynamic Properties page
+    Then The Visible After Five Seconds button should not be visible
+    When Wait for 5 seconds
+    Then The Color Change button should be visible
+
 
 
 

@@ -1,14 +1,21 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import util.ElementHelper;
 
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.time.Duration;
 import java.util.ArrayList;
+
+import static org.testng.Assert.assertFalse;
+import static org.testng.Assert.assertTrue;
 
 public class ElementsPage {
     WebDriver driver;
@@ -257,6 +264,128 @@ public class ElementsPage {
     public void checkIfTheApiMessageIs(String message) {
         By messageCode = By.xpath("//b[normalize-space()='" + message + "']");
         elementHelper.isElementPresent(driver, messageCode);
-        Assert.assertTrue(elementHelper.isElementPresent(driver, messageCode));
+        assertTrue(elementHelper.isElementPresent(driver, messageCode));
     }
+
+    public void userIsOnTheBrokenLinksImagesPage() {
+        By brokenLinksImagesPage = By.xpath("//div[@class='element-list collapse show']//li[@id='item-6']");
+        elementHelper.click(brokenLinksImagesPage);
+        By elementForScroll = By.xpath("//div[@class='col-12 mt-4 col-md-6']//div[3]");
+        elementHelper.scrollToElement(elementForScroll);
+    }
+
+    public void clickToValidLink() {
+        By validLink = By.xpath("//a[normalize-space()='Click Here for Valid Link']");
+        elementHelper.click(validLink);
+    }
+
+    public void checkThatTheLinkIsBeingAccessed(String link) {
+        String newUrl = driver.getCurrentUrl();
+        Assert.assertEquals(newUrl, link);
+    }
+
+    public void clickToBrokenLink() {
+        By brokenLink = By.xpath("//a[normalize-space()='Click Here for Broken Link']");
+        elementHelper.click(brokenLink);
+    }
+
+    public void theErrorPageMustBeDisplayed() {
+        String errorPageUrl = driver.getCurrentUrl();
+        Assert.assertEquals(errorPageUrl, "https://the-internet.herokuapp.com/status_codes/500");
+    }
+
+    public void theValidImageShouldBeDisplayed() {
+        WebElement image = driver.findElement(By.xpath("//div[@class='col-12 mt-4 col-md-6']//img[1]"));
+        Boolean isImageBroken = (Boolean) ((JavascriptExecutor)driver).executeScript(
+                "return arguments[0].naturalWidth == 0", image);
+
+        assertFalse(isImageBroken, "The image is not broken.");
+    }
+
+    public void theBrokenImageShouldNotBeDisplayed() {
+//        By image = By.xpath("//img[2]");
+//        Assert.assertFalse(elementHelper.isElementPresent(driver, image));
+
+
+        WebElement image = driver.findElement(By.xpath("//img[2]"));
+        Boolean isImageBroken = (Boolean) ((JavascriptExecutor)driver).executeScript(
+                "return arguments[0].naturalWidth == 0", image);
+
+        assertTrue(isImageBroken, "The image is not broken.");
+
+    }
+
+    public void userIsOnUploadAndDownloadPage() {
+        By uploadAndDownloadPage = By.xpath("//span[normalize-space()='Upload and Download']");
+        elementHelper.scrollByAmount(driver, 200);
+        elementHelper.click(uploadAndDownloadPage);
+    }
+
+    public void clickToDownloadButton() {
+        WebElement downloadButton = driver.findElement(By.xpath("//a[@id='downloadButton']"));
+        downloadButton.click();
+        elementHelper.sleep(5000);
+    }
+
+    public void theImageMustBeDownloaded() {
+        String downloadPath = "C:\\Users\\ahmet\\Downloads";
+        String fileName = "sampleFile.jpeg";
+
+        boolean isDownloaded = elementHelper.isFileDownloaded(downloadPath, fileName);
+
+        assertTrue(isDownloaded, "The file was not downloaded.");
+    }
+
+    public void clickToUploadButton() {
+        // Yükleme butonunu bul
+        WebElement uploadElement = driver.findElement(By.xpath("//input[@id='uploadFile']"));
+
+        // Yüklemek istediğiniz dosyanın tam yolunu girin
+        uploadElement.sendKeys("C:\\Users\\ahmet\\Downloads\\sampleFile.jpeg");
+        elementHelper.sleep(5000);
+
+
+    }
+
+    public void theImageMustBeUploaded() {
+        // Alternatif olarak, dosyanın başarılı bir şekilde yüklendiğini kontrol edebilirsiniz
+       By uploadedFile = By.xpath("//p[@id='uploadedFilePath']");
+       Assert.assertTrue(elementHelper.isElementPresent(driver, uploadedFile));
+    }
+
+    public void userIsOnTheDynamicPropertiesPage() {
+        By scrollUntilFormsButton = By.xpath("//body/div[@id='app']/div[contains(@class,'body-height')]/div[contains(@class,'container playgound-body')]/div[contains(@class,'row')]/div[contains(@class,'col-md-3')]/div[contains(@class,'left-pannel')]/div[contains(@class,'accordion')]/div[2]/span[1]/div[1]");
+        elementHelper.scrollToElement(scrollUntilFormsButton);
+        By dynamicPropertiesPage = By.xpath("//span[normalize-space()='Dynamic Properties']");
+        elementHelper.click(dynamicPropertiesPage);
+    }
+
+    public void theEnableAfterSecondsButtonShouldBeDisabled() {
+        By disabledButton = By.xpath("//button[@id='enableAfter']");
+        Assert.assertFalse(elementHelper.isElementPresent(driver, disabledButton));
+    }
+
+    public void waitForSeconds(int seconds) {
+        long time = seconds* 1000L;
+        elementHelper.sleep(time);
+    }
+
+    public void theEnableAfterSecondsButtonShouldBeEnabled() {
+        By disabledButton = By.xpath("//button[@id='enableAfter']");
+        Assert.assertTrue(elementHelper.isElementPresent(driver, disabledButton));
+    }
+
+    public void theColorChangeButtonShouldHaveABlueBackgroundColor() {
+    }
+
+    public void theColorChangeButtonShouldChangeItsBackgroundColorToRedd() {
+    }
+
+    public void theVisibleAfterSecondsButtonShouldNotBeVisible() {
+    }
+
+    public void theColorChangeButtonShouldBeVisible() {
+    }
+
+
 }

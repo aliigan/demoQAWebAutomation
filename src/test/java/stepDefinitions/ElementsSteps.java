@@ -222,4 +222,104 @@ public class ElementsSteps {
     public void checkIfTheApiMessageIs(String message) {
         elements.checkIfTheApiMessageIs(message);
     }
+
+    @Given("User is on the Broken Links - Images page")
+    public void userIsOnTheBrokenLinksImagesPage() {
+        elements.userIsOnTheBrokenLinksImagesPage();
+    }
+
+    @When("Click to valid link")
+    public void clickToValidLink() {
+        elements.clickToValidLink();
+    }
+
+    @Then("Check that the {string} link is being accessed")
+    public void checkThatTheLinkIsBeingAccessed(String link) {
+        elements.checkThatTheLinkIsBeingAccessed(link);
+    }
+
+    @When("Click to broken link")
+    public void clickToBrokenLink() {
+        elements.clickToBrokenLink();
+    }
+
+    @Then("The error page must be displayed")
+    public void theErrorPageMustBeDisplayed() {
+        elements.theErrorPageMustBeDisplayed();
+    }
+
+    @Then("The valid image should be displayed")
+    public void theValidImageShouldBeDisplayed() {
+        elements.theValidImageShouldBeDisplayed();
+    }
+
+    @Then("The broken image should not be displayed")
+    public void theBrokenImageShouldNotBeDisplayed() {
+        elements.theBrokenImageShouldNotBeDisplayed();
+    }
+
+    @Given("User is on Upload and Download page")
+    public void userIsOnUploadAndDownloadPage() {
+        elements.userIsOnUploadAndDownloadPage();
+    }
+
+    @When("Click to download button")
+    public void clickToDownloadButton() {
+        elements.clickToDownloadButton();
+    }
+
+    @Then("The image must be downloaded")
+    public void theImageMustBeDownloaded() {
+        elements.theImageMustBeDownloaded();
+    }
+
+    @When("Click to upload button")
+    public void clickToUploadButton() {
+        elements.clickToUploadButton();
+    }
+
+    @Then("The image must be uploaded")
+    public void theImageMustBeUploaded() {
+        elements.theImageMustBeUploaded();
+    }
+
+    @Given("User is on the Dynamic Properties page")
+    public void userIsOnTheDynamicPropertiesPage() {
+        elements.userIsOnTheDynamicPropertiesPage();
+    }
+
+    @Then("The Enable After Five Seconds button should be disabled")
+    public void theEnableAfterSecondsButtonShouldBeDisabled() {
+        elements.theEnableAfterSecondsButtonShouldBeDisabled();
+    }
+
+    @When("Wait for {int} seconds")
+    public void waitForSeconds(int seconds) {
+        elements.waitForSeconds(seconds);
+    }
+
+    @Then("The Enable After Five Seconds button should be enabled")
+    public void theEnableAfterSecondsButtonShouldBeEnabled() {
+        elements.theEnableAfterSecondsButtonShouldBeEnabled();
+    }
+
+    @Then("The Color Change button should have a blue background color")
+    public void theColorChangeButtonShouldHaveABlueBackgroundColor() {
+        elements.theColorChangeButtonShouldHaveABlueBackgroundColor();
+    }
+
+    @Then("The Color Change button should change its background color to red")
+    public void theColorChangeButtonShouldChangeItsBackgroundColorToRed() {
+        elements.theColorChangeButtonShouldChangeItsBackgroundColorToRedd();
+    }
+
+    @Then("The Visible After Five Seconds button should not be visible")
+    public void theVisibleAfterSecondsButtonShouldNotBeVisible() {
+        elements.theVisibleAfterSecondsButtonShouldNotBeVisible();
+    }
+
+    @Then("The Color Change button should be visible")
+    public void theColorChangeButtonShouldBeVisible() {
+        elements.theColorChangeButtonShouldBeVisible();
+    }
 }
