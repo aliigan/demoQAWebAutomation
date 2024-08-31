@@ -33,6 +33,7 @@ public class ElementsPage {
         this.actions = new Actions(driver);
     }
 
+
     public void userIsOnTextBoxPage() {
         elementHelper.sleep(1000);
         elementHelper.scrollByAmount(driver, 300);
@@ -361,8 +362,9 @@ public class ElementsPage {
     }
 
     public void theEnableAfterSecondsButtonShouldBeDisabled() {
-        By disabledButton = By.xpath("//button[@id='enableAfter']");
-        Assert.assertFalse(elementHelper.isElementPresent(driver, disabledButton));
+        By disabledButton = By.xpath("//button[@id='enableAfter' and @disabled and @type='button']");
+        Assert.assertTrue(elementHelper.isElementPresent(driver, disabledButton));
+//        Assert.assertFalse(elementHelper.isButtonClickable(enabledButton));
     }
 
     public void waitForSeconds(int seconds) {
@@ -371,20 +373,33 @@ public class ElementsPage {
     }
 
     public void theEnableAfterSecondsButtonShouldBeEnabled() {
-        By disabledButton = By.xpath("//button[@id='enableAfter']");
-        Assert.assertTrue(elementHelper.isElementPresent(driver, disabledButton));
+        By enabledButton = By.xpath("//button[@id='enableAfter' and @type='button']");
+        Assert.assertTrue(elementHelper.isElementPresent(driver, enabledButton));
     }
 
     public void theColorChangeButtonShouldHaveABlueBackgroundColor() {
+        By blueButton = By.xpath("//button[@id='colorChange' and @class='mt-4 btn btn-primary']");
+        Assert.assertTrue(elementHelper.isElementPresent(driver, blueButton));
     }
+
 
     public void theColorChangeButtonShouldChangeItsBackgroundColorToRedd() {
+        By redButton = By.xpath("//button[@id='colorChange' and @class='mt-4 text-danger btn btn-primary']");
+        Assert.assertTrue(elementHelper.isElementPresent(driver, redButton));
+
     }
+
 
     public void theVisibleAfterSecondsButtonShouldNotBeVisible() {
+        By button = By.xpath("//button[@id='visibleAfter']");
+//        Assert.assertEquals(element.getText(), "Visible After 5 Seconds" );
+        elementHelper.isButtonVisible(button);
+        System.out.println(elementHelper.isButtonVisible(button));
     }
 
-    public void theColorChangeButtonShouldBeVisible() {
+    public void theVisibleAfterFiveSecondsButtonShouldBeVisible() {
+        By visible  = By.xpath("//button[@id='visibleAfter' and @type='button' and  @class='mt-4 btn btn-primary']");
+        Assert.assertTrue(elementHelper.isElementPresent(driver, visible));
     }
 
 

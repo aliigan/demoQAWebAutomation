@@ -318,8 +318,8 @@ public class ElementsSteps {
         elements.theVisibleAfterSecondsButtonShouldNotBeVisible();
     }
 
-    @Then("The Color Change button should be visible")
-    public void theColorChangeButtonShouldBeVisible() {
-        elements.theColorChangeButtonShouldBeVisible();
+    @Then("The Visible After Five Seconds button should be visible")
+    public void theVisibleAfterFiveSecondsButtonShouldBeVisible() {
+        elements.theVisibleAfterFiveSecondsButtonShouldBeVisible();
     }
 }

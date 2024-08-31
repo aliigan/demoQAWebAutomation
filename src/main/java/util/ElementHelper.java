@@ -106,13 +106,23 @@ public class ElementHelper {
 
         for (int i = 0; i < dirContents.length; i++) {
             if (dirContents[i].getName().equals(fileName)) {
-                // Dosya bulundu
                 return true;
             }
         }
-        // Dosya bulunamadı
         return false;
     }
 
+
+    public boolean isButtonVisible(By locator) {
+        try {
+            WebElement button = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+            return button.isDisplayed() &&
+                    !button.getCssValue("display").equals("none") &&
+                    !button.getCssValue("visibility").equals("hidden");
+        } catch (Exception e) {
+            return false;
+        }
+
+    }
 
 }

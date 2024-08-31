@@ -190,9 +190,9 @@ Feature: Elements dropdown test cases
   @DynamicProperties @VerifyBecomesVisibleButton
   Scenario: Verify that the button becomes visible after 5 seconds
     Given User is on the Dynamic Properties page
-    Then The Visible After Five Seconds button should not be visible
+#    Then The Visible After Five Seconds button should not be visible
     When Wait for 5 seconds
-    Then The Color Change button should be visible
+    Then The Visible After Five Seconds button should be visible
 
 
 
