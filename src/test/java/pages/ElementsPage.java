@@ -338,18 +338,12 @@ public class ElementsPage {
     }
 
     public void clickToUploadButton() {
-        // Yükleme butonunu bul
         WebElement uploadElement = driver.findElement(By.xpath("//input[@id='uploadFile']"));
-
-        // Yüklemek istediğiniz dosyanın tam yolunu girin
         uploadElement.sendKeys("C:\\Users\\ahmet\\Downloads\\sampleFile.jpeg");
         elementHelper.sleep(5000);
-
-
     }
 
     public void theImageMustBeUploaded() {
-        // Alternatif olarak, dosyanın başarılı bir şekilde yüklendiğini kontrol edebilirsiniz
        By uploadedFile = By.xpath("//p[@id='uploadedFilePath']");
        Assert.assertTrue(elementHelper.isElementPresent(driver, uploadedFile));
     }

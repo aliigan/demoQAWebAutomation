@@ -5,6 +5,4 @@
             <class name = "testRunners.Runner"/>
         </classes>
     </test>
-
-
 </suite>
