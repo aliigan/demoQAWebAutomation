@@ -28,9 +28,6 @@ public class FormsPage {
     By submit = By.xpath("//button[@id='submit']");
 
     public void clickToFormsButton() {
-
-
-
         elementHelper.scrollByAmount(driver, 200);
         elementHelper.sleep(3000);
         By formsMenu = By.xpath("//div[@class='home-body']//div[2]//div[1]//div[2]//*[name()='svg']");
