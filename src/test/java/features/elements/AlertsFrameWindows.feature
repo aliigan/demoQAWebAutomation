@@ -1,4 +1,4 @@
-
+@AlertsFrameWindows
 Feature: Alerst, Frame and Windows Page Test Cases
 
 

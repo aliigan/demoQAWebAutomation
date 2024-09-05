@@ -1,4 +1,4 @@
-
+@Elements
 Feature: Elements dropdown test cases
 
   Background: To access drop-down menus
