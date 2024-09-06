@@ -2,8 +2,8 @@ package pages;
 
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -156,5 +156,26 @@ public class AlertsFrameWindowsPage {
         elementHelper.sleep(10000);
         By checkName = By.xpath("//span[@id='promptResult']");
         elementHelper.testWebElementText(checkName, name);
+    }
+
+    public void userIsOnFramesMenu() {
+        By frameMenu = By.xpath("//div[@class='element-list collapse show']//li[@id='item-2']");
+        elementHelper.click(frameMenu);
+    }
+
+    public void switchToAndGetTheText(String frame) {
+        driver.switchTo().frame(frame);
+    }
+
+    public void textMustBeThisIsASamplePageInFirstFrame() {
+        By firstFrame = By.xpath("//h1[@id='sampleHeading']");
+        elementHelper.testWebElementText(firstFrame, "This is a sample page");
+        driver.switchTo().defaultContent();
+    }
+
+    public void textMustBeThisIsASamplePageInSecondFrame() {
+        By secondFrame = By.xpath("//h1[@id='sampleHeading']");
+        elementHelper.testWebElementText(secondFrame, "This is a sample page");
+        driver.switchTo().defaultContent();
     }
 }

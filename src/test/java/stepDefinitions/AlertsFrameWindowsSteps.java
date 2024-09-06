@@ -136,4 +136,24 @@ public class AlertsFrameWindowsSteps {
     public void checkThatWritingWasSuccessful(String name) {
         alertsFrameWindows.checkThatWritingWasSuccessful(name);
     }
+
+    @Given("User is on Frames menu")
+    public void userIsOnFramesMenu() {
+        alertsFrameWindows.userIsOnFramesMenu();
+    }
+
+    @When("Switch to {string} and get the text")
+    public void switchToAndGetTheText(String frame) {
+        alertsFrameWindows.switchToAndGetTheText(frame);
+    }
+
+    @Then("Text must be This is a sample page in first frame")
+    public void textMustBeThisIsASamplePageInFirstFrame() {
+        alertsFrameWindows.textMustBeThisIsASamplePageInFirstFrame();
+    }
+
+    @Then("Text must be This is a sample page in second frame")
+    public void textMustBeThisIsASamplePageInSecondFrame() {
+        alertsFrameWindows.textMustBeThisIsASamplePageInSecondFrame();
+    }
 }

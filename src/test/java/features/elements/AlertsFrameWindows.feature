@@ -68,3 +68,12 @@ Feature: Alerst, Frame and Windows Page Test Cases
     And Write "Ahmet Ali İĞAN" to the promt box
     And Click ok on the promt box alert
     Then Check that writing "You entered Ahmet Ali İĞAN" was successful
+
+
+  @Frames @CompareFrames
+  Scenario: Verify text inside frames
+    Given User is on Frames menu
+    When Switch to "frame1" and get the text
+    Then Text must be This is a sample page in first frame
+    When Switch to "frame2" and get the text
+    Then Text must be This is a sample page in second frame
