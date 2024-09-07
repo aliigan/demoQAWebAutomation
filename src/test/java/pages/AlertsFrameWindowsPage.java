@@ -178,4 +178,73 @@ public class AlertsFrameWindowsPage {
         elementHelper.testWebElementText(secondFrame, "This is a sample page");
         driver.switchTo().defaultContent();
     }
+
+    public void userIsOnNestedFramesMenu() {
+        By nestedFramesMenu = By.xpath("//span[normalize-space()='Nested Frames']");
+        elementHelper.scrollByAmount(driver, 100);
+        elementHelper.click(nestedFramesMenu);
+    }
+
+    public void switchToParentFrame() {
+        driver.switchTo().frame(1);
+        elementHelper.sleep(2000);
+    }
+
+    public void frameNameMustBe(String frameName) {
+        By frame = By.xpath("/html[1]/body[1]");
+        if (frameName.equals("Parent frame")){
+            elementHelper.testWebElementText(frame, "Parent frame");
+        }
+        if (frameName.equals("Child frame")) {
+            elementHelper.testWebElementText(frame, "Child frame");
+        }
+    }
+
+    public void switchToChildFrame() {
+        driver.switchTo().frame(0);
+    }
+
+    public void userIsOnModalDialogsMenu() {
+        By modalDialogs = By.xpath("//span[normalize-space()='Modal Dialogs']");
+        elementHelper.scrollByAmount(driver, 200);
+        elementHelper.click(modalDialogs);
+    }
+
+    public void clickToSmallModalButton() {
+        By smallModalButton = By.xpath("//button[@id='showSmallModal']");
+        elementHelper.click(smallModalButton);
+    }
+
+    public void smallModalMustBeOpen() {
+        By smallModalTitle = By.xpath("//div[@id='example-modal-sizes-title-sm']");
+        elementHelper.testWebElementText(smallModalTitle, "Small Modal");
+    }
+
+    public void clickToCloseButtonFor(String closeButton) {
+        String idNum = " ";
+        if (closeButton.equals("small modal")){
+            idNum = "closeSmallModal";
+        }
+        if (closeButton.equals("large modal")){
+            idNum = "closeLargeModal";
+        }
+        By closeButton_ = By.xpath("//button[@id='" + idNum + "']");
+        elementHelper.click(closeButton_);
+        elementHelper.sleep(1000);
+    }
+
+    public void modalDialogsPageMustBeDisplayed() {
+        By modalDialogsPageTitle = By.xpath("//h1[@class='text-center']");
+        elementHelper.testWebElementText(modalDialogsPageTitle, "Modal Dialogs");
+    }
+
+    public void clickToLargeModalButton() {
+        By largeModalButton = By.xpath("//button[@id='showLargeModal']");
+        elementHelper.click(largeModalButton);
+    }
+
+    public void largeModalMustBeOpen() {
+        By largeModalTitle = By.xpath("//div[@id='example-modal-sizes-title-lg']");
+        elementHelper.testWebElementText(largeModalTitle, "Large Modal");
+    }
 }

@@ -64,7 +64,7 @@ public class ElementHelper {
     public void testWebElementText(By key, String expected) {
         WebElement element = driver.findElement(key);
         String actualText = element.getText();
-        assertEquals(expected, actualText, "The text of the web element does not meet the expected value.");
+        assertEquals( actualText, expected, "The text of the web element does not meet the expected value.");
     }
 
 

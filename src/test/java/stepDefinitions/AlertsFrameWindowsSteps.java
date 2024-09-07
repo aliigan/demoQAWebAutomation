@@ -156,4 +156,59 @@ public class AlertsFrameWindowsSteps {
     public void textMustBeThisIsASamplePageInSecondFrame() {
         alertsFrameWindows.textMustBeThisIsASamplePageInSecondFrame();
     }
+
+    @Given("User is on Nested Frames menu")
+    public void userIsOnNestedFramesMenu() {
+        alertsFrameWindows.userIsOnNestedFramesMenu();
+    }
+
+    @When("Switch to parent frame")
+    public void switchToParentFrame() {
+        alertsFrameWindows.switchToParentFrame();
+    }
+
+    @Then("Frame name must be {string}")
+    public void frameNameMustBe(String frameName) {
+        alertsFrameWindows.frameNameMustBe(frameName);
+    }
+
+    @When("Switch to child frame")
+    public void switchToChildFrame() {
+        alertsFrameWindows.switchToChildFrame();
+    }
+
+    @Given("User is on Modal Dialogs menu")
+    public void userIsOnModalDialogsMenu() {
+        alertsFrameWindows.userIsOnModalDialogsMenu();
+    }
+
+    @When("Click to small modal button")
+    public void clickToSmallModalButton() {
+        alertsFrameWindows.clickToSmallModalButton();
+    }
+
+    @Then("Small modal must be open")
+    public void smallModalMustBeOpen() {
+        alertsFrameWindows.smallModalMustBeOpen();
+    }
+
+    @When("Click to close button for {string}")
+    public void clickToCloseButtonFor(String closeButton) {
+        alertsFrameWindows.clickToCloseButtonFor(closeButton);
+    }
+
+    @Then("Modal dialogs page must be displayed")
+    public void modalDialogsPageMustBeDisplayed() {
+        alertsFrameWindows.modalDialogsPageMustBeDisplayed();
+    }
+
+    @When("Click to large modal button")
+    public void clickToLargeModalButton() {
+        alertsFrameWindows.clickToLargeModalButton();
+    }
+
+    @Then("Large modal must be open")
+    public void largeModalMustBeOpen() {
+        alertsFrameWindows.largeModalMustBeOpen();
+    }
 }

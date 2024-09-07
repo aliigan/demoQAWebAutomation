@@ -77,3 +77,35 @@ Feature: Alerst, Frame and Windows Page Test Cases
     Then Text must be This is a sample page in first frame
     When Switch to "frame2" and get the text
     Then Text must be This is a sample page in second frame
+
+
+  @NestedFrames @SwitchFrames
+  Scenario: Switch between frames
+    Given User is on Nested Frames menu
+    When Switch to parent frame
+    Then Frame name must be "Parent frame"
+    When Switch to child frame
+    Then Frame name must be "Child Iframe"
+
+
+  @ModalDialogs @SmallModal
+  Scenario: Verify that the small modal is opened
+    Given  User is on Modal Dialogs menu
+    When Click to small modal button
+    Then Small modal must be open
+    When Click to close button for "small modal"
+    Then Modal dialogs page must be displayed
+
+
+  @ModalDialogs @LargeModal
+  Scenario: Verify that the large modal is opened
+    Given  User is on Modal Dialogs menu
+    When Click to large modal button
+    Then Large modal must be open
+    When Click to close button for "large modal"
+    Then Modal dialogs page must be displayed
+
+
+
+
+
