@@ -11,6 +11,7 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.time.Duration;
 import java.util.List;
+import java.util.NoSuchElementException;
 
 import static org.testng.Assert.assertEquals;
 
@@ -112,7 +113,7 @@ public class ElementHelper {
     }
 
 
-    public boolean isButtonVisible(By locator) {
+    public boolean isElementVisible(By locator) {
         try {
             WebElement button = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
             return button.isDisplayed() &&

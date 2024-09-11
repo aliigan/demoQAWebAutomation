@@ -385,8 +385,8 @@ public class ElementsPage {
     public void theVisibleAfterSecondsButtonShouldNotBeVisible() {
         By button = By.xpath("//button[@id='visibleAfter']");
 //        Assert.assertEquals(element.getText(), "Visible After 5 Seconds" );
-        elementHelper.isButtonVisible(button);
-        System.out.println(elementHelper.isButtonVisible(button));
+        elementHelper.isElementVisible(button);
+        System.out.println(elementHelper.isElementVisible(button));
     }
 
     public void theVisibleAfterFiveSecondsButtonShouldBeVisible() {
