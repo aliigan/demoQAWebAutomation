@@ -1,6 +1,7 @@
 package pages;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
@@ -14,7 +15,7 @@ public class WidgetsPage {
     WebDriverWait wait;
     ElementHelper elementHelper;
     Actions actions;
-    
+
     public WidgetsPage(WebDriver driver){
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
@@ -26,6 +27,7 @@ public class WidgetsPage {
     By secondTitle = By.xpath("//div[@id='section2Heading']");
     By expendedSecondTitle = By.xpath("//div[@class='collapse show']/div[@id='section2Content']");
     By expendedThirdTitle = By.xpath("//div[@class='collapse show']/div[@id='section3Content']");
+    By toolTipsMenu = By.xpath("//div[@class='element-list collapse show']//li[@id='item-6']");
 
     public void clickToWidgetsButton() {
         elementHelper.scrollByAmount(driver, 200);
@@ -71,5 +73,48 @@ public class WidgetsPage {
 
     public void whyDoWeUseItTitleMustBeExpanded() {
         Assert.assertTrue(elementHelper.isElementVisible(expendedThirdTitle));
+    }
+
+    public void userIsOnAutoComplateMenu() {
+        elementHelper.scrollToElement(toolTipsMenu);
+        By autoComplateMenu = By.xpath("//span[normalize-space()='Auto Complete']");
+        elementHelper.click(autoComplateMenu);
+    }
+
+    public void typeAndSelectTwoItemInTheAutocompleteList(String color) {
+        elementHelper.scrollToElement(toolTipsMenu);
+        elementHelper.sleep(1000);
+        By typeMultipleColorNamesInp = By.xpath("//div[@class='auto-complete__value-container auto-complete__value-container--is-multi css-1hwfws3']");
+        elementHelper.click(typeMultipleColorNamesInp);
+        elementHelper.sleep(1000);
+        actions.sendKeys(color).perform();
+        elementHelper.sleep(500);
+        actions.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
+        actions.sendKeys(color).sendKeys(Keys.ENTER).perform();
+    }
+
+    public void theFirstColorMustBeSelectedAndDisplayedInTheInput() {
+        By selectedFirstColor = By.xpath("//div[@class='css-12jo7m5 auto-complete__multi-value__label']");
+        elementHelper.testWebElementText(selectedFirstColor, "Black");
+    }
+
+    public void theSecondColorMustBeSelectedAndDisplayedInTheInput() {
+        By selectedSecondColor = By.xpath("//div[contains(text(),'Blue')]");
+        elementHelper.testWebElementText(selectedSecondColor, "Blue");
+    }
+
+
+    public void typeAndSelectTheItemInTheAutocompleteList(String color) {
+        elementHelper.scrollToElement(toolTipsMenu);
+        By typeSingleColorNameInp = By.xpath("//div[@class='auto-complete__value-container css-1hwfws3']");
+        elementHelper.click(typeSingleColorNameInp);
+        actions.sendKeys(color).perform();
+        elementHelper.sleep(1000);
+        actions.sendKeys(Keys.ARROW_DOWN).sendKeys(Keys.ENTER).perform();
+    }
+
+    public void theColorMustBeSelectedAndDisplayedInTheInput() {
+        By selectedColor = By.xpath("//div[@class='auto-complete__single-value css-1uccc91-singleValue']");
+        elementHelper.testWebElementText(selectedColor, "Yellow");
     }
 }
