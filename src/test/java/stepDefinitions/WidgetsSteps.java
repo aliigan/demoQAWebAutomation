@@ -141,4 +141,34 @@ public class WidgetsSteps {
     public void checkIfTheShiftValueHasChanged() {
         widgets.checkIfTheShiftValueHasChanged();
     }
+
+    @Given("User is on Progress Bar menu")
+    public void userIsOnProgressBarMenu() {
+        widgets.userIsOnProgressBarMenu();
+    }
+
+    @When("Click progress bar start button")
+    public void clickProgressBarStartButton() {
+        widgets.clickProgressBarStartButton();
+    }
+
+    @And("Wait {int} seconds and click to stop button")
+    public void waitSecondsAndClickToStopButton(int seconds) {
+        widgets.waitSecondsAndClickToStopButton(seconds);
+    }
+
+    @Then("The progress bar value must be non-zero")
+    public void theProgressBarValueMustBeNonZero() {
+        widgets.theProgressBarValueMustBeNonZero();
+    }
+
+    @And("Wait until the progress bar is full and click the reset button")
+    public void waitUntilTheProgressBarIsFullAndClickTheResetButton() {
+        widgets.waitUntilTheProgressBarIsFullAndClickTheResetButton();
+    }
+
+    @Then("The progress bar value must be zero")
+    public void theProgressBarValueMustBeZero() {
+        widgets.theProgressBarValueMustBeZero();
+    }
 }

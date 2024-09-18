@@ -30,6 +30,7 @@ public class WidgetsPage {
     By expendedThirdTitle = By.xpath("//div[@class='collapse show']/div[@id='section3Content']");
     By toolTipsMenu = By.xpath("//div[@class='element-list collapse show']//li[@id='item-6']");
     By datePickerInput = By.xpath("//input[@id='dateAndTimePickerInput']");
+    By progressBarStartStopButton = By.xpath("//button[@id='startStopButton']");
 
     public void clickToWidgetsButton() {
         elementHelper.scrollByAmount(driver, 200);
@@ -189,6 +190,14 @@ public class WidgetsPage {
     }
 
     public void moveTheSliderPixels(int pixels) {
+
+        boolean testResult = true;
+
+        if (pixels == 0) {
+            testResult = false;
+        }
+        Assert.assertTrue(testResult, "Pixel value must be entered other than 0.");
+
         WebElement slider = driver.findElement(By.xpath("//input[@type='range']"));
         actions.clickAndHold(slider).moveByOffset(pixels, 0).perform();
     }
@@ -196,12 +205,58 @@ public class WidgetsPage {
     public void checkIfTheShiftValueHasChanged() {
         WebElement sliderValueInp = driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/span[1]/input[1]"));
         String value = sliderValueInp.getAttribute("value");
-        
+
         boolean result;
 
         if(!value.equals("25"))
             result = true;
         else
+            result = false;
+
+        Assert.assertTrue(result);
+    }
+
+    public void userIsOnProgressBarMenu() {
+        elementHelper.scrollToElement(toolTipsMenu);
+        By progressBarMenu = By.xpath("//span[normalize-space()='Progress Bar']");
+        elementHelper.click(progressBarMenu);
+    }
+
+    public void clickProgressBarStartButton() {
+        elementHelper.scrollToElement(toolTipsMenu);
+        elementHelper.click(progressBarStartStopButton);
+    }
+
+    public void waitSecondsAndClickToStopButton(int seconds) {
+        seconds *= 1000;
+        elementHelper.sleep(seconds);
+        elementHelper.click(progressBarStartStopButton);
+    }
+
+    public void theProgressBarValueMustBeNonZero() {
+        WebElement progressBar = driver.findElement(By.xpath("//div[@role='progressbar']"));
+        String progressBarValue = progressBar.getAttribute("aria-valuenow");
+        boolean result = true;
+
+        if (progressBarValue.equals("0"))
+            result = false;
+
+        Assert.assertTrue(result);
+
+    }
+
+    public void waitUntilTheProgressBarIsFullAndClickTheResetButton() {
+        elementHelper.sleep(11000);
+        By resetButton = By.xpath("//button[@id='resetButton']");
+        elementHelper.click(resetButton);
+    }
+
+    public void theProgressBarValueMustBeZero() {
+        WebElement progressBar = driver.findElement(By.xpath("//div[@role='progressbar']"));
+        String progressBarValue = progressBar.getAttribute("aria-valuenow");
+        boolean result = true;
+
+        if (!progressBarValue.equals("0"))
             result = false;
 
         Assert.assertTrue(result);

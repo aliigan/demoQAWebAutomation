@@ -52,6 +52,23 @@ Feature: Widgets Page Test Cases
     Then Check if the shift value has changed
 
 
+  @ProgressBar @StopProgressBar
+  Scenario: The progress bar is stopped and the result is observed
+    Given User is on Progress Bar menu
+    When Click progress bar start button
+    And Wait 5 seconds and click to stop button
+    Then The progress bar value must be non-zero
+
+
+  @ProgressBar @ResetProgressBar
+  Scenario: Wait until the progress bar is full and reset
+    Given User is on Progress Bar menu
+    When Click progress bar start button
+    And Wait until the progress bar is full and click the reset button
+    Then The progress bar value must be zero
+
+
+
 
 
 
