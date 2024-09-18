@@ -3,6 +3,7 @@ package pages;
 import org.openqa.selenium.By;
 import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -116,5 +117,31 @@ public class WidgetsPage {
     public void theColorMustBeSelectedAndDisplayedInTheInput() {
         By selectedColor = By.xpath("//div[@class='auto-complete__single-value css-1uccc91-singleValue']");
         elementHelper.testWebElementText(selectedColor, "Yellow");
+    }
+
+    public void userIsOnDatePickerMenu() {
+        By datePickerMenu = By.xpath("//div[@class='element-list collapse show']//li[@id='item-2']");
+        elementHelper.scrollToElement(toolTipsMenu);
+        elementHelper.click(datePickerMenu);
+    }
+
+    public void updateTheDateInTheSelectDateInputWith(String date) {
+        elementHelper.scrollToElement(toolTipsMenu);
+        By selectDateInput = By.xpath("//input[@id='datePickerMonthYearInput']");
+        elementHelper.click(selectDateInput);
+        actions.keyDown(Keys.CONTROL).sendKeys("a").keyUp(Keys.CONTROL).perform();
+        actions.sendKeys(Keys.BACK_SPACE).perform();
+        elementHelper.sleep(1000);
+        actions.sendKeys(date).perform();
+        elementHelper.sleep(1000);
+        actions.sendKeys(Keys.ENTER).perform();
+        elementHelper.sleep(1000);
+    }
+
+    public void dateMustBeSelected(String date) {
+        WebElement selectedDate = driver.findElement(By.xpath("//input[@id='datePickerMonthYearInput']"));
+        elementHelper.scrollToElement(toolTipsMenu);
+        String dateValue = selectedDate.getAttribute("value");
+        Assert.assertEquals(dateValue, date);
     }
 }

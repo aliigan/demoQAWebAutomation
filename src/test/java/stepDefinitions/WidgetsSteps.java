@@ -81,4 +81,19 @@ public class WidgetsSteps {
     public void theColorMustBeSelectedAndDisplayedInTheInput() {
         widgets.theColorMustBeSelectedAndDisplayedInTheInput();
     }
+
+    @Given("User is on Date Picker menu")
+    public void userIsOnDatePickerMenu() {
+        widgets.userIsOnDatePickerMenu();
+    }
+
+    @When("Update the date in the select date input with {string}")
+    public void updateTheDateInTheSelectDateInputWith(String date) {
+        widgets.updateTheDateInTheSelectDateInputWith(date);
+    }
+
+    @Then("Date {string} must be selected")
+    public void dateMustBeSelected(String date) {
+        widgets.dateMustBeSelected(date);
+    }
 }

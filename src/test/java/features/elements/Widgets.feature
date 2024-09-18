@@ -27,4 +27,13 @@ Feature: Widgets Page Test Cases
     Then The color must be selected and displayed in the input
 
 
+  @DatePicker @FillDateInput
+  Scenario: Write a valid date to input
+    Given User is on Date Picker menu
+    When Update the date in the select date input with "12/04/1995"
+    Then Date "12/04/1995" must be selected
+
+
+
+
 
