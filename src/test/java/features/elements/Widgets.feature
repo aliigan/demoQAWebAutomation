@@ -45,6 +45,13 @@ Feature: Widgets Page Test Cases
     Then Check that the selected time is "January 15, 2023 10:45 PM"
 
 
+  @Slider
+  Scenario: Move to slider
+    Given User is on Slider menu
+    When Move the slider 50 pixels
+    Then Check if the shift value has changed
+
+
 
 
 

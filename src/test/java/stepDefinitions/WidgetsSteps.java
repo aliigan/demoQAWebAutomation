@@ -126,4 +126,19 @@ public class WidgetsSteps {
     public void checkThatTheSelectedTimeIs(String time) {
         widgets.checkThatTheSelectedTimeIs(time);
     }
+
+    @Given("User is on Slider menu")
+    public void userIsOnSliderMenu() {
+        widgets.userIsOnSliderMenu();
+    }
+
+    @When("Move the slider {int} pixels")
+    public void moveTheSliderPixels(int pixels) {
+        widgets.moveTheSliderPixels(pixels);
+    }
+
+    @Then("Check if the shift value has changed")
+    public void checkIfTheShiftValueHasChanged() {
+        widgets.checkIfTheShiftValueHasChanged();
+    }
 }

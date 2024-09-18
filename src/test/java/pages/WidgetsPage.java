@@ -181,4 +181,29 @@ public class WidgetsPage {
         String dateValue = selectedDate.getAttribute("value");
         Assert.assertEquals(dateValue, time);
     }
+
+    public void userIsOnSliderMenu() {
+        elementHelper.scrollToElement(toolTipsMenu);
+        By sliderMenu = By.xpath("//div[@class='element-list collapse show']//li[@id='item-3']");
+        elementHelper.click(sliderMenu);
+    }
+
+    public void moveTheSliderPixels(int pixels) {
+        WebElement slider = driver.findElement(By.xpath("//input[@type='range']"));
+        actions.clickAndHold(slider).moveByOffset(pixels, 0).perform();
+    }
+
+    public void checkIfTheShiftValueHasChanged() {
+        WebElement sliderValueInp = driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/span[1]/input[1]"));
+        String value = sliderValueInp.getAttribute("value");
+        
+        boolean result;
+
+        if(!value.equals("25"))
+            result = true;
+        else
+            result = false;
+
+        Assert.assertTrue(result);
+    }
 }
