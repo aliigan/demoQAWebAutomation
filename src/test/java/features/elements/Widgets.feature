@@ -34,6 +34,17 @@ Feature: Widgets Page Test Cases
     Then Date "12/04/1995" must be selected
 
 
+  @DatePicker @SelectDate
+  Scenario: Date selection via date picker
+    Given User is on Date Picker menu
+    When Click to date picker
+    And Choose month
+    And Choose year
+    And Select day
+    And Select time
+    Then Check that the selected time is "January 15, 2023 10:45 PM"
+
+
 
 
 

@@ -29,6 +29,7 @@ public class WidgetsPage {
     By expendedSecondTitle = By.xpath("//div[@class='collapse show']/div[@id='section2Content']");
     By expendedThirdTitle = By.xpath("//div[@class='collapse show']/div[@id='section3Content']");
     By toolTipsMenu = By.xpath("//div[@class='element-list collapse show']//li[@id='item-6']");
+    By datePickerInput = By.xpath("//input[@id='dateAndTimePickerInput']");
 
     public void clickToWidgetsButton() {
         elementHelper.scrollByAmount(driver, 200);
@@ -143,5 +144,41 @@ public class WidgetsPage {
         elementHelper.scrollToElement(toolTipsMenu);
         String dateValue = selectedDate.getAttribute("value");
         Assert.assertEquals(dateValue, date);
+    }
+
+    public void clickToDatePicker() {
+        elementHelper.click(datePickerInput);
+    }
+
+    public void chooseMonth() {
+        By clickMonthArea = By.xpath("//span[@class='react-datepicker__month-read-view--selected-month']");
+        elementHelper.click(clickMonthArea);
+        By clickMonth = By.xpath("//div[@class='react-datepicker__month-dropdown']//div[1]");
+        elementHelper.click(clickMonth);
+    }
+
+    public void chooseYear() {
+        By clickYearArea = By.xpath("//span[@class='react-datepicker__year-read-view--selected-year']");
+        elementHelper.click(clickYearArea);
+        elementHelper.sleep(1000);
+        By clickYear = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]");
+        elementHelper.click(clickYear);
+    }
+
+    public void selectDay() {
+        By day = By.xpath("//div[@aria-label='Choose Sunday, January 15th, 2023']");
+        elementHelper.click(day);
+    }
+
+
+    public void selectTime() {
+        By time = By.xpath("//li[normalize-space()='22:45']");
+        elementHelper.click(time);
+    }
+
+    public void checkThatTheSelectedTimeIs(String time) {
+        WebElement selectedDate = driver.findElement(datePickerInput);
+        String dateValue = selectedDate.getAttribute("value");
+        Assert.assertEquals(dateValue, time);
     }
 }

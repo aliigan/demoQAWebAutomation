@@ -96,4 +96,34 @@ public class WidgetsSteps {
     public void dateMustBeSelected(String date) {
         widgets.dateMustBeSelected(date);
     }
+
+    @When("Click to date picker")
+    public void clickToDatePicker() {
+        widgets.clickToDatePicker();
+    }
+
+    @And("Choose month")
+    public void chooseMonth() {
+        widgets.chooseMonth();
+    }
+
+    @And("Choose year")
+    public void chooseYear() {
+        widgets.chooseYear();
+    }
+
+    @And("Select day")
+    public void selectDay() {
+        widgets.selectDay();
+    }
+
+    @And("Select time")
+    public void selectTime() {
+        widgets.selectTime();
+    }
+
+    @Then("Check that the selected time is {string}")
+    public void checkThatTheSelectedTimeIs(String time) {
+        widgets.checkThatTheSelectedTimeIs(time);
+    }
 }
