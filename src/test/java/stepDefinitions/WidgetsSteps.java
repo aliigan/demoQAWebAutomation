@@ -171,4 +171,74 @@ public class WidgetsSteps {
     public void theProgressBarValueMustBeZero() {
         widgets.theProgressBarValueMustBeZero();
     }
+
+    @Given("User is on Tabs menu")
+    public void userIsOnTabsMenu() {
+        widgets.userIsOnTabsMenu();
+    }
+
+    @When("Click {string} tab")
+    public void clickTab(String tab) {
+        widgets.clickTab(tab);
+    }
+
+    @Then("The text under the origin must be viewable")
+    public void theTextUnderTheOriginMustBeViewable() {
+        widgets.theTextUnderTheOriginMustBeViewable();
+    }
+
+    @Then("The text under the use must be viewable")
+    public void theTextUnderTheUseMustBeViewable() {
+        widgets.theTextUnderTheUseMustBeViewable();
+    }
+
+    @When("Click more tab")
+    public void clickMoreTab() {
+        widgets.clickMoreTab();
+    }
+
+    @Given("User is on ToolTips menu")
+    public void userIsOnToolTipsMenu() {
+        widgets.userIsOnToolTipsMenu();
+    }
+
+    @When("Hover over the button")
+    public void hoverOverTheButton() {
+        widgets.hoverOverTheButton();
+    }
+
+    @Then("The tooltip on the button should be displayed")
+    public void theTooltipOnTheButtonShouldBeDisplayed() {
+//        widgets.theTooltipOnTheButtonShouldBeDisplayed();
+    }
+
+    @When("Hover over the input")
+    public void hoverOverTheInput() {
+        widgets.hoverOverTheInput();
+    }
+
+    @Then("The tooltip on the input should be displayed")
+    public void theTooltipOnTheInputShouldBeDisplayed() {
+//        widgets.theTooltipOnTheInputShouldBeDisplayed();
+    }
+
+    @When("Hover over the contrary word")
+    public void hoverOverTheContraryWord() {
+        widgets.hoverOverTheContraryWord();
+    }
+
+    @Then("The tooltip on the text should be displayed")
+    public void theTooltipOnTheTextShouldBeDisplayed() {
+        widgets.theTooltipOnTheTextShouldBeDisplayed();
+    }
+
+    @When("Hover over the {string}")
+    public void hoverOverThe(String data) {
+        widgets.hoverOverThe(data);
+    }
+
+    @Then("The tooltip on the version should be displayed")
+    public void theTooltipOnTheVersionShouldBeDisplayed() {
+        widgets.theTooltipOnTheVersionShouldBeDisplayed();
+    }
 }

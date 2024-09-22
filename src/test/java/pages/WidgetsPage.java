@@ -31,7 +31,8 @@ public class WidgetsPage {
     By toolTipsMenu = By.xpath("//div[@class='element-list collapse show']//li[@id='item-6']");
     By datePickerInput = By.xpath("//input[@id='dateAndTimePickerInput']");
     By progressBarStartStopButton = By.xpath("//button[@id='startStopButton']");
-
+    By selectMenuMenu = By.xpath("//span[normalize-space()='Select Menu']");
+    By bookStoreApplicationMenu = By.xpath("//body/div[@id='app']/div[contains(@class,'body-height')]/div[contains(@class,'container playgound-body')]/div[contains(@class,'row')]/div[contains(@class,'col-md-3')]/div[contains(@class,'left-pannel')]/div[contains(@class,'accordion')]/div[6]/span[1]/div[1]/div[1]");
     public void clickToWidgetsButton() {
         elementHelper.scrollByAmount(driver, 200);
         elementHelper.sleep(3000);
@@ -260,5 +261,85 @@ public class WidgetsPage {
             result = false;
 
         Assert.assertTrue(result);
+    }
+
+    public void userIsOnTabsMenu() {
+        elementHelper.scrollToElement(toolTipsMenu);
+        By tabsMenu = By.xpath("//div[@class='element-list collapse show']//li[@id='item-5']");
+        elementHelper.click(tabsMenu);
+    }
+
+    public void clickTab(String tab) {
+        elementHelper.scrollToElement(toolTipsMenu);
+        By selectedTab = By.xpath("//a[@id='demo-tab-" + tab + "']");
+        elementHelper.click(selectedTab);
+    }
+
+    public void theTextUnderTheOriginMustBeViewable() {
+        WebElement contentElement = driver.findElement(By.xpath("//p[contains(text(),'Contrary to popular belief, Lorem Ipsum is not sim')]"));
+
+        String content = contentElement.getText();
+        String uniqueWord = "roots";
+        String partialContent = content.substring(0, content.indexOf(uniqueWord) + uniqueWord.length());
+        String expectedPartialContent = "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots";
+
+        Assert.assertEquals(partialContent, expectedPartialContent);
+    }
+
+    public void theTextUnderTheUseMustBeViewable() {
+        WebElement contentElement = driver.findElement(By.xpath("//p[contains(text(),'It is a long established fact that a reader will b')]"));
+
+        String content = contentElement.getText();
+        String uniqueWord = "established";
+        String partialContent = content.substring(0, content.indexOf(uniqueWord) + uniqueWord.length());
+        String expectedPartialContent = "It is a long established";
+
+        Assert.assertEquals(partialContent, expectedPartialContent);
+
+    }
+
+    public void clickMoreTab() {
+        By selectedTab = By.xpath("//nav[@role='tablist']");
+        elementHelper.click(selectedTab);
+    }
+
+    public void userIsOnToolTipsMenu() {
+        elementHelper.scrollToElement(toolTipsMenu);
+        elementHelper.click(toolTipsMenu);
+    }
+
+    public void hoverOverTheButton() {
+//        elementHelper.scrollToElement(toolTipsMenu);
+        elementHelper.scrollByAmount(driver, 150);
+        WebElement button = driver.findElement(By.xpath("//button[@id='toolTipButton']"));
+        actions.moveToElement(button).perform();
+        By buttonTooltip = By.xpath("//button[@aria-describedby = 'buttonToolTip']");
+        Assert.assertTrue(elementHelper.isElementPresent(driver, buttonTooltip));
+    }
+
+    public void hoverOverTheInput() {
+        elementHelper.scrollByAmount(driver,200);
+        WebElement input = driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/input[1]"));
+        actions.moveToElement(input).perform();
+        By inputToolTip = By.xpath("//input[@aria-describedby = 'textFieldToolTip']");
+        Assert.assertTrue(elementHelper.isElementPresent(driver, inputToolTip));
+    }
+
+    public void hoverOverTheContraryWord() {
+        elementHelper.scrollByAmount(driver, 400);
+        WebElement text = driver.findElement(By.xpath("//a[normalize-space()='Contrary']"));
+        actions.moveToElement(text).perform();
+        elementHelper.sleep(5000);
+        By textToolTip = By.xpath("//a[@aria-describedby = 'contraryTextToolTip']");
+        Assert.assertTrue(elementHelper.isElementVisible(textToolTip));
+    }
+
+    public void theTooltipOnTheTextShouldBeDisplayed() {
+    }
+
+    public void hoverOverThe(String data) {
+    }
+
+    public void theTooltipOnTheVersionShouldBeDisplayed() {
     }
 }

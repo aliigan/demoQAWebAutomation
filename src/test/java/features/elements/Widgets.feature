@@ -68,6 +68,34 @@ Feature: Widgets Page Test Cases
     Then The progress bar value must be zero
 
 
+  @Tabs
+  Scenario: Switch between tabs and inspect content
+    Given User is on Tabs menu
+    When Click "origin" tab
+    Then The text under the origin must be viewable
+    When Click "use" tab
+    Then The text under the use must be viewable
+    When  Click more tab
+    Then The text under the use must be viewable
+
+
+  @ToolTips
+  Scenario: Check tooltips for elements on the page
+    Given User is on ToolTips menu
+    When Hover over the button
+    Then The tooltip on the button should be displayed
+    When Hover over the input
+    Then The tooltip on the input should be displayed
+    When Hover over the contrary word
+    Then The tooltip on the text should be displayed
+    When Hover over the "1.10.32"
+    Then The tooltip on the version should be displayed
+
+
+
+
+
+
 
 
 
