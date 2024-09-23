@@ -207,38 +207,19 @@ public class WidgetsSteps {
         widgets.hoverOverTheButton();
     }
 
-    @Then("The tooltip on the button should be displayed")
-    public void theTooltipOnTheButtonShouldBeDisplayed() {
-//        widgets.theTooltipOnTheButtonShouldBeDisplayed();
-    }
-
-    @When("Hover over the input")
+    @And("Hover over the input")
     public void hoverOverTheInput() {
         widgets.hoverOverTheInput();
     }
 
-    @Then("The tooltip on the input should be displayed")
-    public void theTooltipOnTheInputShouldBeDisplayed() {
-//        widgets.theTooltipOnTheInputShouldBeDisplayed();
-    }
-
-    @When("Hover over the contrary word")
+    @And("Hover over the contrary word")
     public void hoverOverTheContraryWord() {
         widgets.hoverOverTheContraryWord();
     }
 
-    @Then("The tooltip on the text should be displayed")
-    public void theTooltipOnTheTextShouldBeDisplayed() {
-        widgets.theTooltipOnTheTextShouldBeDisplayed();
-    }
-
-    @When("Hover over the {string}")
+    @And("Hover over the {string}")
     public void hoverOverThe(String data) {
         widgets.hoverOverThe(data);
     }
 
-    @Then("The tooltip on the version should be displayed")
-    public void theTooltipOnTheVersionShouldBeDisplayed() {
-        widgets.theTooltipOnTheVersionShouldBeDisplayed();
-    }
 }

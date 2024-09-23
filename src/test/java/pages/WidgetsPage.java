@@ -5,6 +5,7 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import util.ElementHelper;
@@ -277,23 +278,19 @@ public class WidgetsPage {
 
     public void theTextUnderTheOriginMustBeViewable() {
         WebElement contentElement = driver.findElement(By.xpath("//p[contains(text(),'Contrary to popular belief, Lorem Ipsum is not sim')]"));
-
         String content = contentElement.getText();
         String uniqueWord = "roots";
         String partialContent = content.substring(0, content.indexOf(uniqueWord) + uniqueWord.length());
         String expectedPartialContent = "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots";
-
         Assert.assertEquals(partialContent, expectedPartialContent);
     }
 
     public void theTextUnderTheUseMustBeViewable() {
         WebElement contentElement = driver.findElement(By.xpath("//p[contains(text(),'It is a long established fact that a reader will b')]"));
-
         String content = contentElement.getText();
         String uniqueWord = "established";
         String partialContent = content.substring(0, content.indexOf(uniqueWord) + uniqueWord.length());
         String expectedPartialContent = "It is a long established";
-
         Assert.assertEquals(partialContent, expectedPartialContent);
 
     }
@@ -309,10 +306,11 @@ public class WidgetsPage {
     }
 
     public void hoverOverTheButton() {
-//        elementHelper.scrollToElement(toolTipsMenu);
+        elementHelper.sleep(1000);
         elementHelper.scrollByAmount(driver, 150);
         WebElement button = driver.findElement(By.xpath("//button[@id='toolTipButton']"));
         actions.moveToElement(button).perform();
+        elementHelper.sleep(1000);
         By buttonTooltip = By.xpath("//button[@aria-describedby = 'buttonToolTip']");
         Assert.assertTrue(elementHelper.isElementPresent(driver, buttonTooltip));
     }
@@ -326,20 +324,20 @@ public class WidgetsPage {
     }
 
     public void hoverOverTheContraryWord() {
-        elementHelper.scrollByAmount(driver, 400);
+        elementHelper.scrollByAmount(driver, 50);
         WebElement text = driver.findElement(By.xpath("//a[normalize-space()='Contrary']"));
         actions.moveToElement(text).perform();
-        elementHelper.sleep(5000);
-        By textToolTip = By.xpath("//a[@aria-describedby = 'contraryTextToolTip']");
-        Assert.assertTrue(elementHelper.isElementVisible(textToolTip));
-    }
-
-    public void theTooltipOnTheTextShouldBeDisplayed() {
+        elementHelper.sleep(1000);
+        By textToolTip = By.xpath("//a[@aria-describedby='contraryTexToolTip']");
+        Assert.assertTrue(elementHelper.isElementPresent(driver, textToolTip));
     }
 
     public void hoverOverThe(String data) {
+        WebElement text = driver.findElement(By.xpath("//a[normalize-space()='" + data + "']"));
+        actions.moveToElement(text).perform();
+        elementHelper.sleep(1000);
+        By textToolTip = By.xpath("//a[@aria-describedby='sectionToolTip']");
+        Assert.assertTrue(elementHelper.isElementPresent(driver, textToolTip));
     }
 
-    public void theTooltipOnTheVersionShouldBeDisplayed() {
-    }
 }

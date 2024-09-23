@@ -83,13 +83,9 @@ Feature: Widgets Page Test Cases
   Scenario: Check tooltips for elements on the page
     Given User is on ToolTips menu
     When Hover over the button
-    Then The tooltip on the button should be displayed
-    When Hover over the input
-    Then The tooltip on the input should be displayed
-    When Hover over the contrary word
-    Then The tooltip on the text should be displayed
-    When Hover over the "1.10.32"
-    Then The tooltip on the version should be displayed
+    And Hover over the input
+    And Hover over the contrary word
+    And Hover over the "1.10.32"
 
 
 
