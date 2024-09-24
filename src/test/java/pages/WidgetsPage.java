@@ -5,7 +5,6 @@ import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
-import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import util.ElementHelper;
@@ -32,6 +31,7 @@ public class WidgetsPage {
     By toolTipsMenu = By.xpath("//div[@class='element-list collapse show']//li[@id='item-6']");
     By datePickerInput = By.xpath("//input[@id='dateAndTimePickerInput']");
     By progressBarStartStopButton = By.xpath("//button[@id='startStopButton']");
+    By menuMenu = By.xpath("//div[contains(@class,'element-list collapse show')]//li[@id='item-7']");
     By selectMenuMenu = By.xpath("//span[normalize-space()='Select Menu']");
     By bookStoreApplicationMenu = By.xpath("//body/div[@id='app']/div[contains(@class,'body-height')]/div[contains(@class,'container playgound-body')]/div[contains(@class,'row')]/div[contains(@class,'col-md-3')]/div[contains(@class,'left-pannel')]/div[contains(@class,'accordion')]/div[6]/span[1]/div[1]/div[1]");
     public void clickToWidgetsButton() {
@@ -340,4 +340,87 @@ public class WidgetsPage {
         Assert.assertTrue(elementHelper.isElementPresent(driver, textToolTip));
     }
 
+    public void userIsOnMenuMenu() {
+        elementHelper.scrollToElement(bookStoreApplicationMenu);
+        elementHelper.click(menuMenu);
+    }
+
+    public void hoverOverAndVerifyThatItIsVisible(String menu) {
+        By mainMenu = By.xpath("//a[normalize-space()='" + menu + "']");
+        elementHelper.hoverOver(driver, mainMenu, actions);
+//        todo When the hover operation is performed, the color change on the menu should be verified.
+        Assert.assertTrue(elementHelper.isElementPresent(driver, mainMenu));
+    }
+
+    public void hoverOverSubItemOneAndVerifyThatItIsVisible() {
+        By subItem1 = By.xpath("//div/ul[1]/li[2]/ul[1]/li[1]/a");
+        elementHelper.hoverOver(driver, subItem1, actions);
+        Assert.assertTrue(elementHelper.isElementPresent(driver, subItem1));
+    }
+
+    public void hoverOverSubSubItemTwoAndVerifyThatIsVisible() {
+        By subItem2 = By.xpath("//div/ul[1]/li[2]/ul[1]/li[2]/a");
+        elementHelper.hoverOver(driver, subItem2, actions);
+        Assert.assertTrue(elementHelper.isElementPresent(driver, subItem2));
+    }
+
+    public void hoverOverSubSubItemOneAndVerifyThatIsVisible() {
+        By subSubItem = By.xpath("//div/ul[1]/li[2]/ul[1]/li[3]/ul[1]/li[1]/a");
+        elementHelper.hoverOver(driver, subSubItem, actions);
+        Assert.assertTrue(elementHelper.isElementPresent(driver, subSubItem));
+    }
+
+    public void click(String menu) {
+    }
+
+    public void theRedirectUrlMustBe(String url) {
+    }
+
+    public void clickToSubItemOne() {
+    }
+
+    public void clickToSubItemTwo() {
+    }
+
+    public void clickToSubList() {
+    }
+
+    public void hoverOverSubItemTwoAndVerifyThatItIsVisible() {
+    }
+
+
+
+
+    public void userIsOnSelectMenu() {
+    }
+
+    public void selectValue() {
+    }
+
+    public void valueMustBeSelected() {
+    }
+
+    public void selectTitle() {
+    }
+
+    public void titleMustBeSelected() {
+    }
+
+    public void selectColor() {
+    }
+
+    public void colorMustBeSelected() {
+    }
+
+    public void selectMultipleColor() {
+    }
+
+    public void twoColorMustBeSelected() {
+    }
+
+    public void selectBrand() {
+    }
+
+    public void brandMustBeSelected() {
+    }
 }

@@ -125,4 +125,10 @@ public class ElementHelper {
 
     }
 
+    public void hoverOver(WebDriver driver, By locator, Actions actions){
+        WebElement element = driver.findElement(locator);
+        actions.moveToElement(element);
+    }
+
+
 }

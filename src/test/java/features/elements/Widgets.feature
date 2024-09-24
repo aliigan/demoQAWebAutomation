@@ -88,6 +88,64 @@ Feature: Widgets Page Test Cases
     And Hover over the "1.10.32"
 
 
+  @Menu @MainMenu
+  Scenario: Verifying the visibility of main menu elements
+    Given User is on Menu Menu
+    When Hover over "Main Item 1" and verify that it is visible
+    And Hover over "Main Item 2" and verify that it is visible
+    And Hover over "Main Item 3" and verify that it is visible
+
+
+  @Menu @SubMenu
+  Scenario: Verifying the visibility of main menu elements
+    Given User is on Menu Menu
+    When Hover over Sub Item One and verify that it is visible
+    And Hover over Sub Item Two and verify that it is visible
+
+
+  @Menu @ThirdLevelMenu
+  Scenario: Verify that submenus can be opened up to the third level
+    Given User is on Menu Menu
+    When Hover over Sub Sub Item One and verify that is visible
+    And Hover over Sub Sub Item Two and verify that is visible
+
+
+  @Menu @VerifyMenusClickable
+  Scenario: Verify that menus are clickable
+    Given User is on Menu Menu
+    When Click "Main Item 1"
+    Then The redirect url must be "x"
+    When Click "Main Item 2"
+    Then The redirect url must be "x"
+    When Click "Main Item 3"
+    Then The redirect url must be "x"
+    When Click to Sub Item One
+    Then The redirect url must be "x"
+    When Click to Sub Item Two
+    Then The redirect url must be "x"
+    When Click to Sub List
+    Then The redirect url must be "x"
+
+
+  @SelectMenu
+  Scenario: Select menu test scenario
+    Given User is on Select Menu
+    When Select value
+    Then Value must be selected
+    When Select title
+    Then Title must be selected
+    When Select color
+    Then Color must be selected
+    And Select multiple color
+    Then Two color must be selected
+    When Select brand
+    Then Brand must be selected
+
+
+
+
+
+
 
 
 

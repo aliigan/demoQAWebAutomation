@@ -222,4 +222,113 @@ public class WidgetsSteps {
         widgets.hoverOverThe(data);
     }
 
+    @Given("User is on Menu Menu")
+    public void userIsOnMenuMenu() {
+        widgets.userIsOnMenuMenu();
+    }
+
+    @When("Hover over {string} and verify that it is visible")
+    public void hoverOverAndVerifyThatItIsVisible(String menu) {
+        widgets.hoverOverAndVerifyThatItIsVisible(menu);
+    }
+
+    @When("Hover over Sub Item One and verify that it is visible")
+    public void hoverOverSubItemOneAndVerifyThatItIsVisible() {
+        widgets.hoverOverSubItemOneAndVerifyThatItIsVisible();
+    }
+
+    @When("Hover over Sub Sub Item Two and verify that is visible")
+    public void hoverOverSubSubItemTwoAndVerifyThatIsVisible() {
+        widgets.hoverOverSubSubItemTwoAndVerifyThatIsVisible();
+    }
+
+    @When("Click {string}")
+    public void click(String menu) {
+        widgets.click(menu);
+    }
+
+    @Then("The redirect url must be {string}")
+    public void theRedirectUrlMustBe(String url) {
+        widgets.theRedirectUrlMustBe(url);
+    }
+
+    @When("Click to Sub Item One")
+    public void clickToSubItemOne() {
+        widgets.clickToSubItemOne();
+    }
+
+    @When("Click to Sub Item Two")
+    public void clickToSubItemTwo() {
+        widgets.clickToSubItemTwo();
+    }
+
+    @When("Click to Sub List")
+    public void clickToSubList() {
+        widgets.clickToSubList();
+    }
+
+    @And("Hover over Sub Item Two and verify that it is visible")
+    public void hoverOverSubItemTwoAndVerifyThatItIsVisible() {
+        widgets.hoverOverSubItemTwoAndVerifyThatItIsVisible();
+    }
+
+    @When("Hover over Sub Sub Item One and verify that is visible")
+    public void hoverOverSubSubItemOneAndVerifyThatIsVisible() {
+        widgets.hoverOverSubSubItemOneAndVerifyThatIsVisible();
+    }
+
+    @Given("User is on Select Menu")
+    public void userIsOnSelectMenu() {
+        widgets.userIsOnSelectMenu();
+    }
+
+    @When("Select value")
+    public void selectValue() {
+        widgets.selectValue();
+    }
+
+    @Then("Value must be selected")
+    public void valueMustBeSelected() {
+        widgets.valueMustBeSelected();
+    }
+
+    @When("Select title")
+    public void selectTitle() {
+        widgets.selectTitle();
+    }
+
+    @Then("Title must be selected")
+    public void titleMustBeSelected() {
+        widgets.titleMustBeSelected();
+    }
+
+    @When("Select color")
+    public void selectColor() {
+        widgets.selectColor();
+    }
+
+    @Then("Color must be selected")
+    public void colorMustBeSelected() {
+        widgets.colorMustBeSelected();
+    }
+
+    @And("Select multiple color")
+    public void selectMultipleColor() {
+        widgets.selectMultipleColor();
+    }
+
+    @Then("Two color must be selected")
+    public void twoColorMustBeSelected() {
+        widgets.twoColorMustBeSelected();
+    }
+
+    @When("Select brand")
+    public void selectBrand() {
+        widgets.selectBrand();
+    }
+
+    @Then("Brand must be selected")
+    public void brandMustBeSelected() {
+        widgets.brandMustBeSelected();
+    }
 }
