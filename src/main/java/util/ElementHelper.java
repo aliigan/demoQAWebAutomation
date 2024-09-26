@@ -1,11 +1,9 @@
 package util;
 
-import org.openqa.selenium.By;
-import org.openqa.selenium.JavascriptExecutor;
-import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.WebElement;
+import org.openqa.selenium.*;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.Select;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.io.File;
@@ -37,6 +35,7 @@ public class ElementHelper {
 
     public void sendKey(By key, String text){
         findElement(key).sendKeys(text);
+        actions.sendKeys(Keys.ENTER).perform();
     }
 
     public void checkVisible(By key){
@@ -128,6 +127,12 @@ public class ElementHelper {
     public void hoverOver(WebDriver driver, By locator, Actions actions){
         WebElement element = driver.findElement(locator);
         actions.moveToElement(element);
+    }
+
+    public void selectValue(WebDriver driver,String selectId, int index){
+        WebElement element = driver.findElement(By.id(selectId));
+        Select select = new Select(element);
+        select.selectByIndex(index);
     }
 
 

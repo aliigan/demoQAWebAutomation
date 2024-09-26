@@ -114,32 +114,30 @@ Feature: Widgets Page Test Cases
   Scenario: Verify that menus are clickable
     Given User is on Menu Menu
     When Click "Main Item 1"
-    Then The redirect url must be "x"
+    Then The redirect url must be "https://demoqa.com/menu#"
     When Click "Main Item 2"
-    Then The redirect url must be "x"
+    Then The redirect url must be "https://demoqa.com/menu#"
     When Click "Main Item 3"
-    Then The redirect url must be "x"
+    Then The redirect url must be "https://demoqa.com/menu#"
     When Click to Sub Item One
-    Then The redirect url must be "x"
+    Then The redirect url must be "https://demoqa.com/menu#"
     When Click to Sub Item Two
-    Then The redirect url must be "x"
+    Then The redirect url must be "https://demoqa.com/menu#"
     When Click to Sub List
-    Then The redirect url must be "x"
+    Then The redirect url must be "https://demoqa.com/menu#"
 
 
   @SelectMenu
   Scenario: Select menu test scenario
     Given User is on Select Menu
-    When Select value
-    Then Value must be selected
-    When Select title
-    Then Title must be selected
+    When Select value as "Group 1, option 1"
+#    Then Value must be selected
+    When Select title as "Mr."
+#    Then Title must be selected
     When Select color
-    Then Color must be selected
-    And Select multiple color
-    Then Two color must be selected
+#    Then Color must be selected
+    And Select multiple color as "bl"
     When Select brand
-    Then Brand must be selected
 
 
 

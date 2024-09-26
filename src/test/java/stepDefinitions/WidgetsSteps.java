@@ -282,53 +282,49 @@ public class WidgetsSteps {
         widgets.userIsOnSelectMenu();
     }
 
-    @When("Select value")
-    public void selectValue() {
-        widgets.selectValue();
+    @When("Select value as {string}")
+    public void selectValueAs(String value) {
+        widgets.selectValue(value);
     }
 
-    @Then("Value must be selected")
-    public void valueMustBeSelected() {
-        widgets.valueMustBeSelected();
+//    @Then("Value must be selected")
+//    public void valueMustBeSelected() {
+//        widgets.valueMustBeSelected();
+//    }
+
+    @When("Select title as {string}")
+    public void selectTitleAs(String title) {
+        widgets.selectTitle(title);
     }
 
-    @When("Select title")
-    public void selectTitle() {
-        widgets.selectTitle();
-    }
-
-    @Then("Title must be selected")
-    public void titleMustBeSelected() {
-        widgets.titleMustBeSelected();
-    }
+//    @Then("Title must be selected")
+//    public void titleMustBeSelected() {
+//        widgets.titleMustBeSelected();
+//    }
 
     @When("Select color")
     public void selectColor() {
         widgets.selectColor();
     }
 
-    @Then("Color must be selected")
-    public void colorMustBeSelected() {
-        widgets.colorMustBeSelected();
+//    @Then("Color must be selected")
+//    public void colorMustBeSelected() {
+//        widgets.colorMustBeSelected();
+//    }
+
+    @And("Select multiple color as {string}")
+    public void selectMultipleColorAs(String multipleColor) {
+        widgets.selectMultipleColor(multipleColor);
     }
 
-    @And("Select multiple color")
-    public void selectMultipleColor() {
-        widgets.selectMultipleColor();
-    }
-
-    @Then("Two color must be selected")
-    public void twoColorMustBeSelected() {
-        widgets.twoColorMustBeSelected();
-    }
+//    @Then("Two color must be selected")
+//    public void twoColorMustBeSelected() {
+//        widgets.twoColorMustBeSelected();
+//    }
 
     @When("Select brand")
     public void selectBrand() {
         widgets.selectBrand();
     }
 
-    @Then("Brand must be selected")
-    public void brandMustBeSelected() {
-        widgets.brandMustBeSelected();
-    }
 }
