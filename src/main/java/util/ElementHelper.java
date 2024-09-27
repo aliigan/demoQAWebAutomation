@@ -35,7 +35,7 @@ public class ElementHelper {
 
     public void sendKey(By key, String text){
         findElement(key).sendKeys(text);
-        actions.sendKeys(Keys.ENTER).perform();
+//        actions.sendKeys(Keys.ENTER).perform();
     }
 
     public void checkVisible(By key){
