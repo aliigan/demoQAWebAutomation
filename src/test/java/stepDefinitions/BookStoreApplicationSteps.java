@@ -105,4 +105,113 @@ public class BookStoreApplicationSteps {
         bookStoreApplication.messageMustBeOnTheLoginPage(message);
     }
 
+    @Given("User is on book store page")
+    public void userIsOnBookStorePage() {
+        bookStoreApplication.userIsOnBookStorePage();
+    }
+
+    @When("Click login button")
+    public void clickLoginButton() {
+        bookStoreApplication.clickLoginButton();
+    }
+
+    @Then("User must be on the book store page")
+    public void userMustBeOnTheBookStorePage() {
+        bookStoreApplication.userMustBeOnTheBookStorePage();
+    }
+
+    @When("Type {string} in the search box and search")
+    public void typeInTheSearchBoxAndSearch(String searchObject) {
+        bookStoreApplication.typeInTheSearchBoxAndSearch(searchObject);
+    }
+
+    @And("Click first element from list")
+    public void clickFirstElementFromList() {
+        bookStoreApplication.clickFirstElementFromList();
+    }
+
+    @Then("The redirected url must be {string}")
+    public void theRedirectedUrlMustBe(String url) {
+        bookStoreApplication.theRedirectedUrlMustBe(url);
+    }
+
+    @When("Select five rows")
+    public void selectFiveRows() {
+        bookStoreApplication.selectFiveRows();
+    }
+
+    @Then("User must be on the page {string}")
+    public void userMustBeOnThePage(String page) {
+        bookStoreApplication.userMustBeOnThePage(page);
+    }
+
+    @When("Click to next button")
+    public void clickToNextButton() {
+        bookStoreApplication.clickToNextButton();
+    }
+
+    @When("Click to previous button")
+    public void clickToPreviousButton() {
+        bookStoreApplication.clickToPreviousButton();
+    }
+
+    @When("Click to {string} column")
+    public void clickToColumn(String column) {
+        bookStoreApplication.clickToColumn(column);
+    }
+
+    @Then("The author of the first book listed must be {string}")
+    public void theAuthorOfTheFirstBookListedMustBe(String author) {
+        bookStoreApplication.theAuthorOfTheFirstBookListedMustBe(author);
+    }
+
+    @Given("User is on profile menu")
+    public void userIsOnProfileMenu() {
+        bookStoreApplication.userIsOnProfileMenu();
+    }
+
+    @When("Click to login word")
+    public void clickToLoginWord() {
+        bookStoreApplication.clickToLoginWord();
+    }
+
+    @Then("User must be on the profile menu")
+    public void userMustBeOnTheProfileMenu() {
+        bookStoreApplication.userMustBeOnTheProfileMenu();
+    }
+
+    @When("Click to delete all books button")
+    public void clickToDeleteAllBooksButton() {
+        bookStoreApplication.clickToDeleteAllBooksButton();
+    }
+
+    @And("Click to cancel at pop up that appears")
+    public void clickToCancelAtPopUpThatAppears() {
+        bookStoreApplication.clickToCancelAtPopUpThatAppears();
+    }
+
+    @And("Click yes at pop up that appears")
+    public void clickYesAtPopUpThatAppears() {
+        bookStoreApplication.clickYesAtPopUpThatAppears();
+    }
+
+    @And("Click ok at pop up that appears")
+    public void clickOkAtPopUpThatAppears() {
+        bookStoreApplication.clickOkAtPopUpThatAppears();
+    }
+
+    @When("Click go to book store button")
+    public void clickGoToBookStoreButton() {
+        bookStoreApplication.clickGoToBookStoreButton();
+    }
+
+    @Then("Current address must be {string}")
+    public void currentAddressMustBe(String url) {
+        bookStoreApplication.currentAddressMustBe(url);
+    }
+
+    @When("Click to delete account button")
+    public void clickToDeleteAccountButton() {
+        bookStoreApplication.clickToDeleteAccountButton();
+    }
 }
