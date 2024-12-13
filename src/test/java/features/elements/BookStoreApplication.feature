@@ -101,6 +101,7 @@ Feature: Widgets Page Test Cases
       When Click to "<column2>" column
       Then The author of the first book listed must be "<author2>"
 
+
       Examples:
         | column    |       author         | column2   |       author2         |
         | Image     | Richard E. Silverman | Image     |  Nicholas C. Zakas    |
