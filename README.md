@@ -35,17 +35,17 @@ src > test >resources dizininde proje testlerinin koşulduğu test suite ve ayr�
 * Projeye ait repository clonelanır.
 * src > test > resources > config.properties dosyasına gelinerek web sitesine ilişkin url, bekleme süreleri, browser bilgileri kontrol edilir. Proje Chrome, Firefox, Safari ile çalıştırılabilmektedir. Tavsiye edilen tarayıcı Chrome'dur. Diğer tarayıcılarla bazı test senoryoları uyumsuz olabilir. Bu da test senaryolarının doğru çalışmamasına sebep olacak ve testler fail olacaktır.
 
-  |<img src="https://github.com/aliigan/demoQAWebOtomation/blob/main/images/configProperties.png" >|
+  <img src="https://github.com/aliigan/demoQAWebOtomation/blob/main/images/configProperties.png" >
 
 
 
 * Local kurulumda bazı test senaryoları için upload ve download işlemleri yer almaktadır. Bu işlemlerin yer aldığı test senaryolarının başarılı bir şekilde test edilebilmesi için uygun formatta örnek niteliğinde dosyalar eklenmeli ve bu dosyaların pathleri proje içerisinde ilgili kod bloğunda bildirilmelidir. Proje içerisinde path eklenmesi gereken yerler aşağıda belirtilmiştir.
 
-  |<img src="https://github.com/aliigan/demoQAWebOtomation/blob/main/images/elementsPagePath1.png" >|
+  <img src="https://github.com/aliigan/demoQAWebOtomation/blob/main/images/elementsPagePath1.png" >
 
 
 
-  |<img src="https://github.com/aliigan/demoQAWebOtomation/blob/main/images/elementsPagePath2.png" >|
+  <img src="https://github.com/aliigan/demoQAWebOtomation/blob/main/images/elementsPagePath2.png" >
 
 
 
@@ -63,13 +63,13 @@ src > test >resources dizininde proje testlerinin koşulduğu test suite ve ayr�
 
  * src > main > java > testRunners > Runner class içerisindeki tags değeri boş bırakılır.
 
-|<img src="https://github.com/aliigan/demoQAWebOtomation/blob/main/images/runAllTestsRunnerClass.png" >|
+<img src="https://github.com/aliigan/demoQAWebOtomation/blob/main/images/runAllTestsRunnerClass.png" >
 
 
 
  * src > tests > resources > TestNG.xml test suitine gidilerek mouse sağ click yapılarak run seçilir.
 
-|<img src="https://github.com/aliigan/demoQAWebOtomation/blob/main/images/runAllTestsTestNGSuite.png" >|
+<img src="https://github.com/aliigan/demoQAWebOtomation/blob/main/images/runAllTestsTestNGSuite.png" >
 
 
 
@@ -82,13 +82,13 @@ src > test >resources dizininde proje testlerinin koşulduğu test suite ve ayr�
 * src > test > java > features dizininde çalıştırılmak istenen test/testlerin bulunduğu sayfaya girilir. (örnek: AlertsFrameWindows)
 * Çalıştırılmak istenen sayfaya, test grubuna veya teste ait tag kopyalanır. (örnek: @BrowserWindows)
 
-|<img src="https://github.com/aliigan/demoQAWebOtomation/blob/main/images/featureTestTag.png" >|
+<img src="https://github.com/aliigan/demoQAWebOtomation/blob/main/images/featureTestTag.png" >
 
 
 
  * src > main > java > testRunners > Runner class içerisindeki tags değerine kopyalanan tag yapıştırılır.
 
-|<img src="https://github.com/aliigan/demoQAWebOtomation/blob/main/images/pasteTestTagInRunner.png" >|
+<img src="https://github.com/aliigan/demoQAWebOtomation/blob/main/images/pasteTestTagInRunner.png" >
 
 
 
@@ -102,11 +102,11 @@ src > test >resources dizininde proje testlerinin koşulduğu test suite ve ayr�
  * Bu durumun bir önceki "Belirli bir testin veya aynı gruptaki testlerin koşulması" durumundan tek farkı src > main > java > testRunners > Runner dizininde
  çalıştırmak istemediğimiz test veya test grubuna ait tagın başına not ifadesini getirmektir. Diğer adımlar aynı şekilde uygulanır.
 
-|<img src="https://github.com/aliigan/demoQAWebOtomation/blob/main/images/notTag.png" >|
+<img src="https://github.com/aliigan/demoQAWebOtomation/blob/main/images/notTag.png" >
 
 
 
-(yazmaya buradan devam et
+--------------
 
   
 
