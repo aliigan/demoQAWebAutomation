@@ -49,16 +49,16 @@ src > test >resources dizininde proje testlerinin koşulduğu test suite ve ayr�
 
 
 
-  ### Testlerin Koşulması
+### Testlerin Koşulması
 
-  Test koşumunda mevcut senaryolarda karşımıza çıkan üç durum vardır:
-
-  1. Bütün testlerin koşulması
-  2. Belirli bir testin veya aynı gruptaki testlerin koşulması
-  3. Bazı testler hariç geri kalan testlerin koşturulması
+ Test koşumunda mevcut senaryolarda karşımıza çıkan üç durum vardır:
+ 
+   1. Bütün testlerin koşulması
+   2. Belirli bir testin veya aynı gruptaki testlerin koşulması
+   3. Bazı testler hariç geri kalan testlerin koşturulması
+  
  
      
- 
   #### Bütün testlerin koşulması
 
  * src > main > java > testRunners > Runner class içerisindeki tags değeri boş bırakılır.
@@ -106,7 +106,36 @@ src > test >resources dizininde proje testlerinin koşulduğu test suite ve ayr�
 
 
 
---------------
+### Test Raporlarının Görüntülenmesi
+
+Test raporları Cucumber tarafından otomatik olarak sağlanmaktadır. Her test koşumu sonucunda test raporu oluşturulur. Test raporunu görüntülemek için Reports > CucumberReport > Reports.html dosyasına sağ click yapılır.
+
+<img src="https://github.com/aliigan/demoQAWebOtomation/blob/main/images/howToDisplayReports.png" >
+
+
+
+* Tarayıcı üzerinden açılan html formatındaki test raporunda geçen ve fail olan testler yüzdesel olarak belirtilmiştir. Testlerin yapıldığı işletim sistemi, testlerin tamamlanma süresi, kullanılan araç ve programların sürümlerine ilişkin detaylar yer almaktadır. Test hangi adımda fail olmuş, hangi adımlar başarı ile tamamlanmış ve hangi adımlar çalıştırılmadan geçilmiş raporda görüntülenebilir. Fail olan testlerdeki konsol hataları da raporda aynen basılır.
+
+<img src="https://github.com/aliigan/demoQAWebOtomation/blob/main/images/testRunReport.png" >
+
+
+
+* Konsol hatalarına ilişkin detaylar
+
+<img src="https://github.com/aliigan/demoQAWebOtomation/blob/main/images/failDetails.png" >
+
+
+
+## Diğer Detaylar
+
+* Lisans: MIT
+* Fonksiyonel ve fonksiyonel olmayan özelliklere ilişkin test senaryoları eklenmeye devam edilecektir.
+* Desteklenen Java Sürümleri; Java 21 +
+* Template oluşturulurken yararlanılan kaynak repo:  https://github.com/burakikinci/SeleniumTemp
+
+
+
+
 
   
 
