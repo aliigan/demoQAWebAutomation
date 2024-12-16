@@ -26,7 +26,8 @@ public class AlertsFrameWindowsPage {
     public void clickToAlertsFrameAndWindowsButton() {
         elementHelper.scrollByAmount(driver, 200);
         elementHelper.sleep(3000);
-        By alertsFrameWindowsMenu = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[2]/*[name()='svg'][1]");
+        By alertsFrameWindowsMenu = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[2]" +
+                "/div[1]/div[3]/div[1]/div[2]/*[name()='svg'][1]");
         elementHelper.click(alertsFrameWindowsMenu);
     }
 

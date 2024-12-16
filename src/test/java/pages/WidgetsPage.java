@@ -38,12 +38,17 @@ public class WidgetsPage {
     By subSubItem1 = By.xpath("//div/ul[1]/li[2]/ul[1]/li[3]/ul[1]/li[1]/a");
     By subSubItem2 = By.xpath("//div/ul[1]/li[2]/ul[1]/li[3]/ul[1]/li[2]/a");
     By selectMenuMenu = By.xpath("//span[normalize-space()='Select Menu']");
-    By interactions = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[1]/div[1]/div[1]/div[5]/span[1]/div[1]/div[1]");
-    By bookStoreApplicationMenu = By.xpath("//body/div[@id='app']/div[contains(@class,'body-height')]/div[contains(@class,'container playgound-body')]/div[contains(@class,'row')]/div[contains(@class,'col-md-3')]/div[contains(@class,'left-pannel')]/div[contains(@class,'accordion')]/div[6]/span[1]/div[1]/div[1]");
+    By interactions = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]" +
+            "/div[1]/div[1]/div[1]/div[1]/div[5]/span[1]/div[1]/div[1]");
+    By bookStoreApplicationMenu = By.xpath("//body/div[@id='app']/div[contains(@class,'body-height')]" +
+            "/div[contains(@class,'container playgound-body')]/div[contains(@class,'row')]" +
+            "/div[contains(@class,'col-md-3')]/div[contains(@class,'left-pannel')]" +
+            "/div[contains(@class,'accordion')]/div[6]/span[1]/div[1]/div[1]");
     public void clickToWidgetsButton() {
         elementHelper.scrollByAmount(driver, 200);
         elementHelper.sleep(3000);
-        By widgetsMenu = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[2]/div[1]/div[4]/div[1]/div[2]");
+        By widgetsMenu = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]" +
+                "/div[2]/div[1]/div[4]/div[1]/div[2]");
         elementHelper.click(widgetsMenu);
     }
 
@@ -75,7 +80,8 @@ public class WidgetsPage {
 
     public void clickToWhyDoWeUseItTitle() {
         Assert.assertFalse(elementHelper.isElementVisible(expendedThirdTitle));
-        By scrollUntilSelectMenu = By.xpath("//div[@class='element-list collapse show']//li[@id='item-8']");
+        By scrollUntilSelectMenu = By.xpath("//div[@class='element-list collapse show']" +
+                "//li[@id='item-8']");
         elementHelper.scrollToElement(scrollUntilSelectMenu);
         elementHelper.scrollByAmount(driver, 200);
         By thirdTitle = By.xpath("//div[@id='section3Heading']");
@@ -95,7 +101,8 @@ public class WidgetsPage {
     public void typeAndSelectTwoItemInTheAutocompleteList(String color) {
         elementHelper.scrollToElement(toolTipsMenu);
         elementHelper.sleep(1000);
-        By typeMultipleColorNamesInp = By.xpath("//div[@class='auto-complete__value-container auto-complete__value-container--is-multi css-1hwfws3']");
+        By typeMultipleColorNamesInp = By.xpath("//div[@class='auto-complete__value-container " +
+                "auto-complete__value-container--is-multi css-1hwfws3']");
         elementHelper.click(typeMultipleColorNamesInp);
         elementHelper.sleep(1000);
         actions.sendKeys(color).perform();
@@ -170,7 +177,8 @@ public class WidgetsPage {
         By clickYearArea = By.xpath("//span[@class='react-datepicker__year-read-view--selected-year']");
         elementHelper.click(clickYearArea);
         elementHelper.sleep(1000);
-        By clickYear = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]");
+        By clickYear = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]" +
+                "/div[2]/div[2]/div[2]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[1]/div[2]/div[2]/div[1]/div[8]");
         elementHelper.click(clickYear);
     }
 
@@ -211,7 +219,8 @@ public class WidgetsPage {
     }
 
     public void checkIfTheShiftValueHasChanged() {
-        WebElement sliderValueInp = driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/span[1]/input[1]"));
+        WebElement sliderValueInp = driver.findElement(By.xpath("/html[1]/body[1]/div[2]" +
+                "/div[1]/div[1]/div[1]/div[2]/form[1]/div[1]/div[1]/span[1]/input[1]"));
         String value = sliderValueInp.getAttribute("value");
 
         boolean result;
@@ -283,16 +292,19 @@ public class WidgetsPage {
     }
 
     public void theTextUnderTheOriginMustBeViewable() {
-        WebElement contentElement = driver.findElement(By.xpath("//p[contains(text(),'Contrary to popular belief, Lorem Ipsum is not sim')]"));
+        WebElement contentElement = driver.findElement(By.xpath("//p[contains(text()," +
+                "'Contrary to popular belief, Lorem Ipsum is not sim')]"));
         String content = contentElement.getText();
         String uniqueWord = "roots";
         String partialContent = content.substring(0, content.indexOf(uniqueWord) + uniqueWord.length());
-        String expectedPartialContent = "Contrary to popular belief, Lorem Ipsum is not simply random text. It has roots";
+        String expectedPartialContent = "Contrary to popular belief, " +
+                "Lorem Ipsum is not simply random text. It has roots";
         Assert.assertEquals(partialContent, expectedPartialContent);
     }
 
     public void theTextUnderTheUseMustBeViewable() {
-        WebElement contentElement = driver.findElement(By.xpath("//p[contains(text(),'It is a long established fact that a reader will b')]"));
+        WebElement contentElement = driver.findElement(By.xpath("//p[contains(text()," +
+                "'It is a long established fact that a reader will b')]"));
         String content = contentElement.getText();
         String uniqueWord = "established";
         String partialContent = content.substring(0, content.indexOf(uniqueWord) + uniqueWord.length());
@@ -323,7 +335,8 @@ public class WidgetsPage {
 
     public void hoverOverTheInput() {
         elementHelper.scrollByAmount(driver,200);
-        WebElement input = driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/input[1]"));
+        WebElement input = driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[1]" +
+                "/div[1]/div[1]/div[2]/div[2]/div[2]/input[1]"));
         actions.moveToElement(input).perform();
         By inputToolTip = By.xpath("//input[@aria-describedby = 'textFieldToolTip']");
         Assert.assertTrue(elementHelper.isElementPresent(driver, inputToolTip));
@@ -450,7 +463,8 @@ public class WidgetsPage {
 
     public void selectTitle(String title) {
         elementHelper.scrollToElement(toolTipsMenu);
-        By selectTitle = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]");
+        By selectTitle = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]" +
+                "/div[2]/div[4]/div[1]/div[1]/div[1]/div[1]");
         elementHelper.click(selectTitle);
         actions.sendKeys(title).sendKeys(Keys.ENTER).perform();
     }
@@ -470,7 +484,8 @@ public class WidgetsPage {
 //    }
 
     public void selectMultipleColor(String multipleColor) {
-        By selectFirstColor = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[7]/div[1]/div[1]/div[1]/div[1]");
+        By selectFirstColor = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]" +
+                "/div[1]/div[2]/div[2]/div[7]/div[1]/div[1]/div[1]/div[1]");
         elementHelper.click(selectFirstColor);
         actions.sendKeys(multipleColor).sendKeys(Keys.ENTER).perform();
         elementHelper.sleep(1000);

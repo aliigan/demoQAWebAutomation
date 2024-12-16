@@ -79,13 +79,15 @@ public class FormsPage {
         actions.sendKeys(Keys.ENTER).perform();
         //select day
         elementHelper.sleep(500);
-        By selectDay = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[5]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]");
+        By selectDay = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]" +
+                "/div[2]/div[2]/form[1]/div[5]/div[2]/div[2]/div[2]/div[1]/div[1]/div[2]/div[2]/div[1]/div[2]");
         elementHelper.click(selectDay);
         elementHelper.sleep(500);
     }
 
     public void selectSubject(String subject) {
-        By subjects = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/form[1]/div[6]/div[2]/div[1]/div[1]/div[1]");
+        By subjects = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]" +
+                "/div[2]/div[2]/form[1]/div[6]/div[2]/div[1]/div[1]/div[1]");
         elementHelper.click(subjects);
 //        elementHelper.sendKey(subjects, subject);
         actions.sendKeys(subject).perform();

@@ -166,7 +166,8 @@ public class ElementsPage {
         elementHelper.sleep(1000);
         elementHelper.scrollByAmount(driver, 400);
         elementHelper.sendKey(search, user);
-        By expectedUser = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]");
+        By expectedUser = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]" +
+                "/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[1]");
         elementHelper.testWebElementText(expectedUser, user);
     }
 
@@ -191,7 +192,8 @@ public class ElementsPage {
 
     public void checkIfYourEmailIsUpdated(String email) {
         //todo should be transferred here with the updated email cucumber
-        By checkEmail = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[4]");
+        By checkEmail = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]" +
+                "/div[2]/div[2]/div[3]/div[1]/div[2]/div[1]/div[1]/div[4]");
         elementHelper.testWebElementText(checkEmail, email);
     }
 
@@ -207,7 +209,8 @@ public class ElementsPage {
 
     public void userIsOnButtonsMenu() {
         By buttonsMenu = By.xpath("//span[normalize-space()='Buttons']");
-        By scrroll = By.xpath("//body/div[@id='app']/div[@class='body-height']/div[@class='container playgound-body']/div[@class='row']/div[@class='col-12 mt-4 col-md-6']/div[3]");
+        By scrroll = By.xpath("//body/div[@id='app']/div[@class='body-height']" +
+                "/div[@class='container playgound-body']/div[@class='row']/div[@class='col-12 mt-4 col-md-6']/div[3]");
         elementHelper.click(buttonsMenu);
         elementHelper.scrollToElement(scrroll);
         elementHelper.sleep(2000);
@@ -238,7 +241,8 @@ public class ElementsPage {
     }
 
     public void leftClickOnTheClickMeButton() {
-        By leftClickButton = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[3]/button[1]");
+        By leftClickButton = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]" +
+                "/div[1]/div[2]/div[2]/div[3]/button[1]");
         elementHelper.leftClick(leftClickButton);
     }
 
@@ -267,7 +271,8 @@ public class ElementsPage {
     }
 
     public void userIsOnTheBrokenLinksImagesPage() {
-        By brokenLinksImagesPage = By.xpath("//div[@class='element-list collapse show']//li[@id='item-6']");
+        By brokenLinksImagesPage = By.xpath("//div[@class='element-list collapse show']" +
+                "//li[@id='item-6']");
         elementHelper.click(brokenLinksImagesPage);
         By elementForScroll = By.xpath("//div[@class='col-12 mt-4 col-md-6']//div[3]");
         elementHelper.scrollToElement(elementForScroll);
@@ -304,7 +309,6 @@ public class ElementsPage {
     public void theBrokenImageShouldNotBeDisplayed() {
 //        By image = By.xpath("//img[2]");
 //        Assert.assertFalse(elementHelper.isElementPresent(driver, image));
-
 
         WebElement image = driver.findElement(By.xpath("//img[2]"));
         Boolean isImageBroken = (Boolean) ((JavascriptExecutor)driver).executeScript(
@@ -347,7 +351,10 @@ public class ElementsPage {
     }
 
     public void userIsOnTheDynamicPropertiesPage() {
-        By scrollUntilFormsButton = By.xpath("//body/div[@id='app']/div[contains(@class,'body-height')]/div[contains(@class,'container playgound-body')]/div[contains(@class,'row')]/div[contains(@class,'col-md-3')]/div[contains(@class,'left-pannel')]/div[contains(@class,'accordion')]/div[2]/span[1]/div[1]");
+        By scrollUntilFormsButton = By.xpath("//body/div[@id='app']/div[contains(@class,'body-height')]" +
+                "/div[contains(@class,'container playgound-body')]/div[contains(@class,'row')]" +
+                "/div[contains(@class,'col-md-3')]/div[contains(@class,'left-pannel')]" +
+                "/div[contains(@class,'accordion')]/div[2]/span[1]/div[1]");
         elementHelper.scrollToElement(scrollUntilFormsButton);
         By dynamicPropertiesPage = By.xpath("//span[normalize-space()='Dynamic Properties']");
         elementHelper.click(dynamicPropertiesPage);
@@ -376,7 +383,8 @@ public class ElementsPage {
 
 
     public void theColorChangeButtonShouldChangeItsBackgroundColorToRedd() {
-        By redButton = By.xpath("//button[@id='colorChange' and @class='mt-4 text-danger btn btn-primary']");
+        By redButton = By.xpath("//button[@id='colorChange' and " +
+                "@class='mt-4 text-danger btn btn-primary']");
         Assert.assertTrue(elementHelper.isElementPresent(driver, redButton));
 
     }
@@ -390,7 +398,8 @@ public class ElementsPage {
     }
 
     public void theVisibleAfterFiveSecondsButtonShouldBeVisible() {
-        By visible  = By.xpath("//button[@id='visibleAfter' and @type='button' and  @class='mt-4 btn btn-primary']");
+        By visible  = By.xpath("//button[@id='visibleAfter' and @type='button' " +
+                "and  @class='mt-4 btn btn-primary']");
         Assert.assertTrue(elementHelper.isElementPresent(driver, visible));
     }
 

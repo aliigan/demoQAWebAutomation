@@ -155,7 +155,8 @@ public class BookStoreApplicationPage {
     public void clickFirstElementFromList() {
         elementHelper.sleep(2000);
         elementHelper.scrollByAmount(driver, 400);
-        By firstElementAtTheList = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/span[1]/a[1]");
+        By firstElementAtTheList = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]" +
+                "/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[2]/div[1]/span[1]/a[1]");
         elementHelper.click(firstElementAtTheList);
     }
 
@@ -175,7 +176,8 @@ public class BookStoreApplicationPage {
     }
 
     public void userMustBeOnThePage(String page) {
-        WebElement page_ = driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/span[1]/div[1]/input[1]"));
+        WebElement page_ = driver.findElement(By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]" +
+                "/div[1]/div[2]/div[2]/div[2]/div[2]/div[1]/div[2]/span[1]/div[1]/input[1]"));
         String pageValue = page_.getAttribute("value");
         Assert.assertEquals(pageValue, page);
     }
@@ -196,7 +198,8 @@ public class BookStoreApplicationPage {
     }
 
     public void theAuthorOfTheFirstBookListedMustBe(String author) {
-        By author_ = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]");
+        By author_ = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[1]/div[2]/div[2]" +
+                "/div[2]/div[1]/div[2]/div[1]/div[1]/div[3]");
         elementHelper.testWebElementText(author_, author);
     }
 
@@ -217,7 +220,8 @@ public class BookStoreApplicationPage {
     public void userMustBeOnTheProfileMenu() {
         elementHelper.sleep(4000);
         elementHelper.scrollByAmount(driver, -200);
-        By userNameTitle = By.xpath("//div[@class='text-right col-md-5 col-sm-12']//label[@id='userName-label']");
+        By userNameTitle = By.xpath("//div[@class='text-right col-md-5 col-sm-12']" +
+                "//label[@id='userName-label']");
         Assert.assertTrue(elementHelper.isElementPresent(driver, userNameTitle));
     }
 
