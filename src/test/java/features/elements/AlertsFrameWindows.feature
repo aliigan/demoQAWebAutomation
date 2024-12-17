@@ -31,7 +31,7 @@ Feature: Alerst, Frame and Windows Page Test Cases
   Scenario: Open alert message
     Given User is on Alert menu
     When Click to alert button
-#    Then Alert message must be open
+    Then Alert message must be open
     When Click to ok button
     Then User must be on alert page
 
@@ -40,7 +40,7 @@ Feature: Alerst, Frame and Windows Page Test Cases
   Scenario: Alert message popping up after 5 seconds test scenario
     Given User is on Alert menu
     When Click to timed alert button
-#    Then The alert message must be pop up after 5 seconds
+    Then The alert message must be pop up after 5 seconds
     When Click to ok button at timed alert
     Then User must be on alert page
 
@@ -104,8 +104,4 @@ Feature: Alerst, Frame and Windows Page Test Cases
     Then Large modal must be open
     When Click to close button for "large modal"
     Then Modal dialogs page must be displayed
-
-
-
-
 

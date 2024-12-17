@@ -10,6 +10,7 @@ import java.io.File;
 import java.time.Duration;
 import java.util.List;
 import java.util.NoSuchElementException;
+import java.util.Properties;
 
 import static org.testng.Assert.assertEquals;
 
@@ -20,9 +21,11 @@ public class ElementHelper {
 
     public ElementHelper(WebDriver driver){
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         this.actions = new Actions(driver);
     }
+
+
 
     public WebElement presenceElement(By key){
         return wait.until(ExpectedConditions.presenceOfElementLocated(key));
@@ -43,7 +46,9 @@ public class ElementHelper {
     }
 
     public void click(By key){
-        findElement(key).click();
+//        findElement(key).click();
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(key));
+        element.click();
     }
 
     public void sleep(long milisecond){
@@ -62,7 +67,7 @@ public class ElementHelper {
 
 
     public void testWebElementText(By key, String expected) {
-        WebElement element = driver.findElement(key);
+        WebElement element = wait.until(ExpectedConditions.visibilityOf(driver.findElement(key)));
         String actualText = element.getText();
         assertEquals( actualText, expected, "The text of the web element does not meet the expected value.");
     }

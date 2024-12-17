@@ -1,6 +1,8 @@
 package pages;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.Alert;
+import org.openqa.selenium.By;
+import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
@@ -18,14 +20,14 @@ public class AlertsFrameWindowsPage {
 
     public AlertsFrameWindowsPage(WebDriver driver){
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
         this.actions = new Actions(driver);
         this.elementHelper = new ElementHelper(driver);
     }
 
     public void clickToAlertsFrameAndWindowsButton() {
         elementHelper.scrollByAmount(driver, 200);
-        elementHelper.sleep(3000);
+//        elementHelper.sleep(3000);
         By alertsFrameWindowsMenu = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[2]" +
                 "/div[1]/div[3]/div[1]/div[2]/*[name()='svg'][1]");
         elementHelper.click(alertsFrameWindowsMenu);
@@ -82,7 +84,9 @@ public class AlertsFrameWindowsPage {
     }
 
     public void alertMessageMustBeOpen() {
-      //todo pop up hareketleri sayfa kaynağında görüntülenemiyor. araştırılacak
+        Alert alert = driver.switchTo().alert();
+        String alertMessage = alert.getText();
+        Assert.assertEquals(alertMessage, "You clicked a button");
     }
 
     public void clickToOkButton() {
@@ -101,11 +105,13 @@ public class AlertsFrameWindowsPage {
     }
 
     public void theAlertMessageMustBePopUpAfterSeconds(int seconds) {
-        //todo pop up hareketleri sayfa kaynağında görüntülenemiyor. araştırılacak
+        elementHelper.sleep(seconds*1000);
+        Alert alert = driver.switchTo().alert();
+        String alertMessage = alert.getText();
+        Assert.assertEquals(alertMessage, "This alert appeared after 5 seconds");
     }
 
     public void clickToOkButtonAtTimedAlert() {
-        elementHelper.sleep(5000);
         Alert alert = driver.switchTo().alert();
         alert.accept();
     }
@@ -126,11 +132,9 @@ public class AlertsFrameWindowsPage {
     }
 
     public void clickCancelOnTheAlertMessage() {
-//        Alert alert = driver.switchTo().alert();
-//        alert.dismiss();
-        elementHelper.sleep(1000);
-        actions.sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.TAB).sendKeys(Keys.ENTER).perform();
-}
+        Alert alert = driver.switchTo().alert();
+        alert.dismiss();
+    }
 
     public void verifyThatTheCancelButtonWasClicked() {
         By clickCancelMessage = By.xpath("//span[@id='confirmResult']");
@@ -145,15 +149,15 @@ public class AlertsFrameWindowsPage {
     public void writeToThePromtBox(String name) {
         Alert promptAlert = driver.switchTo().alert();
         promptAlert.sendKeys(name);
-        promptAlert.accept();
     }
 
     public void clickOkOnThePromtBoxAlert() {
-
+        Alert promptAlert = driver.switchTo().alert();
+        promptAlert.accept();
     }
 
     public void checkThatWritingWasSuccessful(String name) {
-        elementHelper.sleep(10000);
+//        elementHelper.sleep(10000);
         By checkName = By.xpath("//span[@id='promptResult']");
         elementHelper.testWebElementText(checkName, name);
     }
@@ -192,12 +196,7 @@ public class AlertsFrameWindowsPage {
 
     public void frameNameMustBe(String frameName) {
         By frame = By.xpath("/html[1]/body[1]");
-        if (frameName.equals("Parent frame")){
-            elementHelper.testWebElementText(frame, "Parent frame");
-        }
-        if (frameName.equals("Child frame")) {
-            elementHelper.testWebElementText(frame, "Child frame");
-        }
+        elementHelper.testWebElementText(frame, frameName);
     }
 
     public void switchToChildFrame() {
@@ -247,4 +246,6 @@ public class AlertsFrameWindowsPage {
         By largeModalTitle = By.xpath("//div[@id='example-modal-sizes-title-lg']");
         elementHelper.testWebElementText(largeModalTitle, "Large Modal");
     }
+
+
 }
