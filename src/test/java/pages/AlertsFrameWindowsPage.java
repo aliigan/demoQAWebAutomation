@@ -3,7 +3,9 @@ package pages;
 import org.openqa.selenium.Alert;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import util.ElementHelper;
@@ -20,27 +22,26 @@ public class AlertsFrameWindowsPage {
 
     public AlertsFrameWindowsPage(WebDriver driver){
         this.driver = driver;
-        this.wait = new WebDriverWait(driver, Duration.ofSeconds(15));
+        this.wait = new WebDriverWait(driver, Duration.ofSeconds(20));
         this.actions = new Actions(driver);
         this.elementHelper = new ElementHelper(driver);
     }
 
     public void clickToAlertsFrameAndWindowsButton() {
         elementHelper.scrollByAmount(driver, 200);
-//        elementHelper.sleep(3000);
         By alertsFrameWindowsMenu = By.xpath("/html[1]/body[1]/div[2]/div[1]/div[1]/div[2]" +
                 "/div[1]/div[3]/div[1]/div[2]/*[name()='svg'][1]");
-        elementHelper.click(alertsFrameWindowsMenu);
+        elementHelper.click(wait, alertsFrameWindowsMenu);
     }
 
     public void userIsOnBrowserWindowsMenu() {
         By browserMenu = By.xpath("//span[normalize-space()='Browser Windows']");
-        elementHelper.click(browserMenu);
+        elementHelper.click(wait, browserMenu);
     }
 
     public void clickToOpenNewTabButton() {
         By newTabButton = By.xpath("//button[@id='tabButton']");
-        elementHelper.click(newTabButton);
+        elementHelper.click(wait, newTabButton);
     }
 
     public void aNewTabMustBeOpen() {
@@ -52,7 +53,7 @@ public class AlertsFrameWindowsPage {
 
     public void clickToOpenNewWindowButton() {
         By newWindowButton = By.xpath("//button[@id='windowButton']");
-        elementHelper.click(newWindowButton);
+        elementHelper.click(wait, newWindowButton);
     }
 
     public void aNewWindowMustBeOpen() {
@@ -64,7 +65,7 @@ public class AlertsFrameWindowsPage {
 
     public void clickToOpenNewWindowMessageButton() {
         By newWindowMessage = By.xpath("//button[@id='messageWindowButton']");
-        elementHelper.click(newWindowMessage);
+        elementHelper.click(wait, newWindowMessage);
     }
 
     public void aNewWindowMessageMustBeOpen() {
@@ -75,12 +76,12 @@ public class AlertsFrameWindowsPage {
 
     public void userIsOnAlertMenu() {
         By alertsMenu = By.xpath("//div[@class='element-list collapse show']//li[@id='item-1']");
-        elementHelper.click(alertsMenu);
+        elementHelper.click(wait, alertsMenu);
     }
 
     public void clickToAlertButton() {
         By alertButton = By.xpath("//button[@id='alertButton']");
-        elementHelper.click(alertButton);
+        elementHelper.click(wait, alertButton);
     }
 
     public void alertMessageMustBeOpen() {
@@ -101,7 +102,7 @@ public class AlertsFrameWindowsPage {
 
     public void clickToTimedAlertButton() {
         By timedAlert = By.xpath("//button[@id='timerAlertButton']");
-        elementHelper.click(timedAlert);
+        elementHelper.click(wait, timedAlert);
     }
 
     public void theAlertMessageMustBePopUpAfterSeconds(int seconds) {
@@ -118,7 +119,7 @@ public class AlertsFrameWindowsPage {
 
     public void clickToConfirmAlertButton() {
         By confirmAlert = By.xpath("//button[@id='confirmButton']");
-        elementHelper.click(confirmAlert);
+        elementHelper.click(wait, confirmAlert);
     }
 
     public void clickOkOnTheAlertMessage() {
@@ -143,11 +144,12 @@ public class AlertsFrameWindowsPage {
 
     public void clickToPromtBoxAlertButton() {
         By promtButton = By.xpath("//button[@id='promtButton']");
-        elementHelper.click(promtButton);
+        elementHelper.click(wait, promtButton);
     }
 
     public void writeToThePromtBox(String name) {
-        Alert promptAlert = driver.switchTo().alert();
+//        todo tüm alert çıkan menüler bu şekilde düzenlenecek
+        Alert promptAlert = wait.until(ExpectedConditions.alertIsPresent());
         promptAlert.sendKeys(name);
     }
 
@@ -157,14 +159,13 @@ public class AlertsFrameWindowsPage {
     }
 
     public void checkThatWritingWasSuccessful(String name) {
-//        elementHelper.sleep(10000);
         By checkName = By.xpath("//span[@id='promptResult']");
         elementHelper.testWebElementText(checkName, name);
     }
 
     public void userIsOnFramesMenu() {
         By frameMenu = By.xpath("//div[@class='element-list collapse show']//li[@id='item-2']");
-        elementHelper.click(frameMenu);
+        elementHelper.click(wait, frameMenu);
     }
 
     public void switchToAndGetTheText(String frame) {
@@ -186,7 +187,7 @@ public class AlertsFrameWindowsPage {
     public void userIsOnNestedFramesMenu() {
         By nestedFramesMenu = By.xpath("//span[normalize-space()='Nested Frames']");
         elementHelper.scrollByAmount(driver, 100);
-        elementHelper.click(nestedFramesMenu);
+        elementHelper.click(wait, nestedFramesMenu);
     }
 
     public void switchToParentFrame() {
@@ -206,12 +207,12 @@ public class AlertsFrameWindowsPage {
     public void userIsOnModalDialogsMenu() {
         By modalDialogs = By.xpath("//span[normalize-space()='Modal Dialogs']");
         elementHelper.scrollByAmount(driver, 200);
-        elementHelper.click(modalDialogs);
+        elementHelper.click(wait, modalDialogs);
     }
 
     public void clickToSmallModalButton() {
         By smallModalButton = By.xpath("//button[@id='showSmallModal']");
-        elementHelper.click(smallModalButton);
+        elementHelper.click(wait, smallModalButton);
     }
 
     public void smallModalMustBeOpen() {
@@ -228,8 +229,7 @@ public class AlertsFrameWindowsPage {
             idNum = "closeLargeModal";
         }
         By closeButton_ = By.xpath("//button[@id='" + idNum + "']");
-        elementHelper.click(closeButton_);
-        elementHelper.sleep(1000);
+        elementHelper.click(wait, closeButton_);
     }
 
     public void modalDialogsPageMustBeDisplayed() {
@@ -239,7 +239,7 @@ public class AlertsFrameWindowsPage {
 
     public void clickToLargeModalButton() {
         By largeModalButton = By.xpath("//button[@id='showLargeModal']");
-        elementHelper.click(largeModalButton);
+        elementHelper.click(wait, largeModalButton);
     }
 
     public void largeModalMustBeOpen() {

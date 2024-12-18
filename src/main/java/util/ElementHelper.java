@@ -1,6 +1,9 @@
 package util;
 
-import org.openqa.selenium.*;
+import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
+import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
@@ -9,8 +12,6 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.File;
 import java.time.Duration;
 import java.util.List;
-import java.util.NoSuchElementException;
-import java.util.Properties;
 
 import static org.testng.Assert.assertEquals;
 
@@ -38,7 +39,6 @@ public class ElementHelper {
 
     public void sendKey(By key, String text){
         findElement(key).sendKeys(text);
-//        actions.sendKeys(Keys.ENTER).perform();
     }
 
     public void checkVisible(By key){
@@ -46,8 +46,12 @@ public class ElementHelper {
     }
 
     public void click(By key){
-//        findElement(key).click();
         WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(key));
+        element.click();
+    }
+
+    public void click(WebDriverWait wait, By locator){
+        WebElement element = wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
         element.click();
     }
 
