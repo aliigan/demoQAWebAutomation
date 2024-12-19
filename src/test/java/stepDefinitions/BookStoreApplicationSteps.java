@@ -190,9 +190,9 @@ public class BookStoreApplicationSteps {
         bookStoreApplication.clickToCancelAtPopUpThatAppears();
     }
 
-    @And("Click yes at pop up that appears")
-    public void clickYesAtPopUpThatAppears() {
-        bookStoreApplication.clickYesAtPopUpThatAppears();
+    @And("Click yes at modal that appears")
+    public void clickYesAtModalThatAppears() {
+        bookStoreApplication.clickYesAtModalThatAppears();
     }
 
     @And("Click ok at pop up that appears")
@@ -214,4 +214,11 @@ public class BookStoreApplicationSteps {
     public void clickToDeleteAccountButton() {
         bookStoreApplication.clickToDeleteAccountButton();
     }
+
+    @And("Click cancel on the modal message")
+    public void clickCancelOnTheModalMessage() {
+        bookStoreApplication.clickCancelOnTheModalMessage();
+    }
+
+
 }

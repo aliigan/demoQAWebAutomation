@@ -100,8 +100,6 @@ Feature: Widgets Page Test Cases
       Then The author of the first book listed must be "<author>"
       When Click to "<column2>" column
       Then The author of the first book listed must be "<author2>"
-
-
       Examples:
         | column    |       author         | column2   |       author2         |
         | Image     | Richard E. Silverman | Image     |  Nicholas C. Zakas    |
@@ -123,9 +121,9 @@ Feature: Widgets Page Test Cases
       And Click to cancel at pop up that appears
       Then User must be on the profile menu
       When Click to delete all books button
-      And Click yes at pop up that appears
+      And Click yes at modal that appears
       And Click ok at pop up that appears
-#      Then User must be on the profile menu
+      Then User must be on the profile menu
 
 
     @Profile @GoToBookStore
@@ -149,32 +147,22 @@ Feature: Widgets Page Test Cases
     When Click to login word
     Then User must be on the login page
 #    aktif bir kullanıcı adı - şifre gerekli
-    When Enter userName as "userName123"
+    When Enter userName as "userName1234567"
     And Enter password as "Hesoyam34!"
     And Click to login button
     Then User must be on the profile menu
     When Click to delete account button
-    And Click cancel on the alert message
+    And Click cancel on the modal message
     Then User must be on the profile menu
     When Click to delete account button
-    And Click yes at pop up that appears
+    And Click yes at modal that appears
     And Click ok at pop up that appears
     Then User must be on the login page
 
 
-#    userName123
+#    aktif hesaplar (şifre hepsi için aynı)
+
 #    userName1234
 #    userName12345
-
-
-
-
-
-
-
-
-
-
-
-
+#    userName123456
 
