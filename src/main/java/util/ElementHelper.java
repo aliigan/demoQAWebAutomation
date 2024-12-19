@@ -41,7 +41,7 @@ public class ElementHelper {
         findElement(key).sendKeys(text);
     }
 
-    public void checkVisible(By key){
+    public void checkVisible(WebDriverWait wait, By key){
         wait.until(ExpectedConditions.visibilityOf(findElement(key)));
     }
 
