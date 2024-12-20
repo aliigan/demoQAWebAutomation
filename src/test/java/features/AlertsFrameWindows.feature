@@ -3,7 +3,7 @@ Feature: Alerst, Frame and Windows Page Test Cases
 
 
   Background: To access drop-down menus
-    When Click to alerts, frame and windows button
+    Given Click to alerts, frame and windows button
 
 
   @BrowserWindows @OpenNewTab

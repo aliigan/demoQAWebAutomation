@@ -48,14 +48,9 @@ public class ElementsSteps {
         elements.checkThatAUserRecordNamedHasBeenCreated(name);
     }
 
-    @When("Click to elements button")
+    @Given("Click to elements button")
     public void clickToElementsButton() {
         elements.clickToElementsButton();
-    }
-
-    @And("Click to text box button")
-    public void clickToTextBoxButton() {
-        elements.clickToTextBoxButton();
     }
 
     @Given("User is on check box page")

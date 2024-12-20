@@ -2,8 +2,7 @@
 Feature: Elements dropdown test cases
 
   Background: To access drop-down menus
-    When Click to elements button
-#    And Click to text box button
+    Given Click to elements button
 
 
   @TextBox
@@ -77,10 +76,6 @@ Feature: Elements dropdown test cases
     And Write department as "Software Development"
     And Click registration form submit button
     Then Check that the registration form is opened
-
-
-#  @WebTables @PaginationTest
-#  Scenario: Pagination operations forward, backward, page going tests
 
 
   @Buttons @DoubleClick

@@ -3,7 +3,7 @@ Feature: Widgets Page Test Cases
 
 
   Background: To access drop-down menus
-    When Click to widgets button
+    Given Click to widgets button
 
 
   @Accordian

@@ -12,7 +12,7 @@ public class FormsSteps {
     WebDriver driver = DriverFactory.getDriver();
     FormsPage forms = new FormsPage(driver);
 
-    @When("Click to forms button")
+    @Given("Click to forms button")
     public void clickToFormsButton() {
         forms.clickToFormsButton();
     }

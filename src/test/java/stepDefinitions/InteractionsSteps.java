@@ -12,7 +12,7 @@ public class InteractionsSteps {
     WebDriver driver = DriverFactory.getDriver();
     InteractionsPage interactions = new InteractionsPage(driver);
 
-    @When("Click to interactions button")
+    @Given("Click to interactions button")
     public void clickToInteractionsButton() {
         interactions.clickToInteractionsButton();
     }

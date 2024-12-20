@@ -71,11 +71,6 @@ public class ElementsPage {
         elementHelper.click(elements);
     }
 
-    public void clickToTextBoxButton() {
-        By textBox = By.xpath("//div[@class='element-list collapse show']//li[@id='item-0']");
-        elementHelper.click(textBox);
-    }
-
     public void checkThatAUserRecordNamedHasBeenCreated(String name) {
         By element = By.xpath("//p[@id='name']");
         elementHelper.testWebElementText(element, name);

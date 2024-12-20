@@ -11,7 +11,7 @@ import util.DriverFactory;
 public class WidgetsSteps {
     WebDriver driver = DriverFactory.getDriver();
     WidgetsPage widgets = new WidgetsPage(driver);
-    @When("Click to widgets button")
+    @Given("Click to widgets button")
     public void clickToWidgetsButton() {
         widgets.clickToWidgetsButton();
     }

@@ -12,7 +12,7 @@ public class AlertsFrameWindowsSteps {
 
     WebDriver driver = DriverFactory.getDriver();
     AlertsFrameWindowsPage alertsFrameWindows = new AlertsFrameWindowsPage(driver);
-    @When("Click to alerts, frame and windows button")
+    @Given("Click to alerts, frame and windows button")
     public void clickToAlertsFrameAndWindowsButton() {
         alertsFrameWindows.clickToAlertsFrameAndWindowsButton();
     }

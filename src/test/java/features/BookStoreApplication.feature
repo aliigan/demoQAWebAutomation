@@ -3,7 +3,7 @@ Feature: Widgets Page Test Cases
 
 
   Background: To access drop-down menus
-    When Click to book store application button
+    Given Click to book store application button
 
 
   @Login @CreateNewUser

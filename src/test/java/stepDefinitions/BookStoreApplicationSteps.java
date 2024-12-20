@@ -15,7 +15,7 @@ public class BookStoreApplicationSteps {
     WebDriver driver = DriverFactory.getDriver();
     BookStoreApplicationPage bookStoreApplication = new BookStoreApplicationPage(driver);
 
-    @When("Click to book store application button")
+    @Given("Click to book store application button")
     public void clickToBookStoreApplicationButton() {
         bookStoreApplication.clickToBookStoreApplicationButton();
     }

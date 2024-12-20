@@ -2,7 +2,7 @@
   Feature: Forms dropdown test cases
 
     Background: To access drop-down menus
-      When Click to forms button
+      Given Click to forms button
 
 
     @Forms @FillPractiseForm
