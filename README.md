@@ -1,4 +1,4 @@
-# demoQAWebOtomation
+# demoQAWebAutomation
 
 
  Bu proje demoqa.com için hazırlanmış bir yazılım test otomasyodur. Web sitesindeki bütün web sayfaları için yazılmış otomasyon testlerinden oluşmaktadır. Ağırlıklı olarak **kara kutu test tekniği** ile hazırlanmış **fonksiyonel testlerden** oluşmaktadır. Ayrıca sayfa yüklenme sürelerine ilişkin performans testlerini içermektedir. Java, Selenium Web Driver,
